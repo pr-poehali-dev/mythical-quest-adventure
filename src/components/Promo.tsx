@@ -23,7 +23,7 @@ export default function Promo() {
               alt="Уход за розами"
               className="h-full w-auto object-contain"
             />
-            <div className="absolute inset-0" style={{ background: "linear-gradient(to right, transparent 80%, #f5f0eb 100%), linear-gradient(to bottom, #f5f0eb 0%, transparent 7%, transparent 93%, #f5f0eb 100%)" }} />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to right, transparent 90%, #f5f0eb 100%), linear-gradient(to bottom, #f5f0eb 0%, transparent 4%, transparent 96%, #f5f0eb 100%)" }} />
           </div>
         </motion.div>
       </div>
