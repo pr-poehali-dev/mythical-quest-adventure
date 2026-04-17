@@ -26,17 +26,26 @@ export default function Hero() {
       </motion.div>
 
       <div className="relative z-10 text-center text-white">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 drop-shadow-lg">
           ЦВЕТЫ РОССИИ
         </h1>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto px-6 opacity-90 mb-8">
+        <p className="text-lg md:text-xl max-w-2xl mx-auto px-6 mb-8 drop-shadow" style={{ color: "#e8edf8" }}>
           Свежие букеты с любовью — для особых моментов и каждого дня
         </p>
         <a
           href="https://vk.com/flowersrf124"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-white text-black px-8 py-3 uppercase text-sm tracking-wide font-medium hover:bg-neutral-200 transition-colors duration-300"
+          className="inline-block px-8 py-3 uppercase text-sm tracking-wide font-medium transition-all duration-300 border-2"
+          style={{ backgroundColor: "#ffffff", color: "#3D5DAE", borderColor: "#ffffff" }}
+          onMouseEnter={e => {
+            (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "transparent";
+            (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff";
+          }}
+          onMouseLeave={e => {
+            (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#ffffff";
+            (e.currentTarget as HTMLAnchorElement).style.color = "#3D5DAE";
+          }}
         >
           Заказать букет
         </a>
