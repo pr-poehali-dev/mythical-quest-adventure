@@ -52,7 +52,7 @@ const roses = [
   {
     name: "Red Naomi",
     description: "Классические алые розы с бархатными лепестками. Символ страсти и глубокой любви — для самых важных признаний.",
-    imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/b2454bd8-2778-483a-a002-de7f46e42a03.jpg",
+    imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/files/e89bd759-5a59-487a-89fd-9a2d7f4a18d4.jpg",
     reverse: true,
     photos: [],
   },
