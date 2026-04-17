@@ -1,12 +1,18 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Featured from "@/components/Featured";
 import RoseSection from "@/components/RoseSection";
 import Promo from "@/components/Promo";
 import OrderForm from "@/components/OrderForm";
 import Footer from "@/components/Footer";
 
 const roses = [
+  {
+    name: "Bellini",
+    description: "Нежно-жёлтые розы с медовым оттенком. Тёплые, солнечные и жизнерадостные — идеальный подарок для тех, кто ценит уют.",
+    imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/f80295f4-a61b-48ca-a6ee-5c664d90ec33.jpg",
+    reverse: false,
+    photos: [],
+  },
   {
     name: "Novi",
     description: "Яркие оранжевые розы с насыщенным огненным тоном. Энергичные и страстные — для тех, кто хочет удивить.",
@@ -49,7 +55,6 @@ const Index = () => {
     <main className="min-h-screen">
       <Header />
       <Hero />
-      <Featured />
       {roses.map((rose) => (
         <RoseSection key={rose.name} {...rose} />
       ))}
