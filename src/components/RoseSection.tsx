@@ -16,12 +16,22 @@ export default function RoseSection({ name, description, imageUrl, photos = [], 
 
   return (
     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0" style={{ backgroundColor: "#f5f0eb" }}>
-      <div className={`flex justify-end mb-8 lg:mb-0 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
-        <img
-          src={imageUrl}
-          alt={`Розы ${name}`}
-          className="w-[200px] md:w-[280px] lg:w-[360px] object-contain"
-        />
+      <div className={`relative flex justify-end mb-8 lg:mb-0 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
+        <div className="relative w-[200px] md:w-[280px] lg:w-[360px]">
+          <img
+            src={imageUrl}
+            alt={`Розы ${name}`}
+            className="w-full object-contain"
+          />
+          {/* Градиент сверху */}
+          <div className="absolute inset-x-0 top-0 h-24 pointer-events-none" style={{ background: "linear-gradient(to bottom, #f5f0eb, transparent)" }} />
+          {/* Градиент снизу */}
+          <div className="absolute inset-x-0 bottom-0 h-24 pointer-events-none" style={{ background: "linear-gradient(to top, #f5f0eb, transparent)" }} />
+          {/* Градиент слева */}
+          <div className="absolute inset-y-0 left-0 w-16 pointer-events-none" style={{ background: `linear-gradient(to right, #f5f0eb, transparent)` }} />
+          {/* Градиент справа */}
+          <div className="absolute inset-y-0 right-0 w-16 pointer-events-none" style={{ background: `linear-gradient(to left, #f5f0eb, transparent)` }} />
+        </div>
       </div>
       <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-center ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
         <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400">Сорт роз</h3>
