@@ -10,7 +10,7 @@ export default function Header({ className }: HeaderProps) {
         <nav className="flex gap-8">
           <a
             href="#about"
-            className="text-white hover:text-neutral-400 transition-colors duration-300 uppercase text-sm"
+            className="text-black hover:text-neutral-600 transition-colors duration-300 uppercase text-sm font-medium"
           >
             О нас
           </a>
@@ -18,7 +18,7 @@ export default function Header({ className }: HeaderProps) {
             href="https://vk.com/flowersrf124"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-neutral-400 transition-colors duration-300 uppercase text-sm"
+            className="text-black hover:text-neutral-600 transition-colors duration-300 uppercase text-sm font-medium"
           >
             ВКонтакте
           </a>
