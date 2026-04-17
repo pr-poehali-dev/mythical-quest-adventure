@@ -20,7 +20,7 @@ export default function Promo() {
           <img
             src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/3e30d022-8a96-439a-87be-25f2cff8bf3d.jpg"
             alt="Уход за розами"
-            className="h-1/2 w-auto object-contain"
+            className="h-3/4 w-auto object-contain"
           />
         </motion.div>
       </div>
