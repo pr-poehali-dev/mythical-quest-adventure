@@ -60,7 +60,7 @@ export default function OrderForm() {
             </div>
             <div className="w-full h-72 overflow-hidden rounded">
               <iframe
-                src="https://yandex.ru/map-widget/v1/?ll=92.8283%2C56.0171&z=12&pt=92.8672%2C56.0184%2Cpmrdm1~92.8234%2C56.0452%2Cpmrdm2~92.7943%2C55.9876%2Cpmrdm3"
+                src="https://yandex.ru/map-widget/v1/?ll=92.8545%2C56.0131&z=12&pt=92.897425%2C56.042426%2Cpmrdm1~92.800407%2C56.013663%2Cpmrdm2~92.863657%2C55.982829%2Cpmrdm3"
                 width="100%"
                 height="100%"
                 frameBorder="0"
