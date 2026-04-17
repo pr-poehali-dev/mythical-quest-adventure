@@ -72,7 +72,7 @@ export default function Hero() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center"
+              className="bg-white rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center max-h-[90vh] overflow-y-auto"
               onClick={e => e.stopPropagation()}
             >
               <img
@@ -83,21 +83,23 @@ export default function Hero() {
               <h2 className="text-xl font-bold mb-1" style={{ color: "#3D5DAE" }}>Свяжитесь с нами</h2>
               <p className="text-sm text-neutral-500 mb-6">Мы с удовольствием поможем с выбором букета</p>
 
-              <div className="bg-neutral-50 rounded-xl p-4 mb-3 text-left">
-                <p className="text-xs uppercase tracking-wide text-neutral-400 mb-1">Адрес</p>
-                <p className="font-semibold text-neutral-800">ул. Академика Киренского, 71</p>
-              </div>
-
-              <div className="bg-neutral-50 rounded-xl p-4 mb-6 text-left">
-                <p className="text-xs uppercase tracking-wide text-neutral-400 mb-1">Телефон</p>
-                <a
-                  href="tel:+79951241240"
-                  className="font-bold text-lg hover:opacity-80 transition-opacity"
-                  style={{ color: "#3D5DAE" }}
-                >
-                  8-995-124-12-40
-                </a>
-              </div>
+              {[
+                { address: "ул. Академика Киренского, 71", phone: "8-995-124-12-40", tel: "+79951241240" },
+                { address: "ул. Семафорная, 191", phone: "8-995-124-12-42", tel: "+79951241242" },
+                { address: "ул. Алексеева, 111", phone: "8-995-124-12-44", tel: "+79951241244" },
+              ].map((shop, i) => (
+                <div key={i} className="bg-neutral-50 rounded-xl p-4 mb-3 text-left">
+                  <p className="text-xs uppercase tracking-wide text-neutral-400 mb-1">Магазин {i + 1}</p>
+                  <p className="font-semibold text-neutral-800 mb-1">{shop.address}</p>
+                  <a
+                    href={`tel:${shop.tel}`}
+                    className="font-bold text-base hover:opacity-80 transition-opacity"
+                    style={{ color: "#3D5DAE" }}
+                  >
+                    {shop.phone}
+                  </a>
+                </div>
+              ))}
 
               <button
                 onClick={() => setShowContacts(false)}
