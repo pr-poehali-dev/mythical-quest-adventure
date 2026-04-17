@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import RoseSection from "@/components/RoseSection";
+import RussianFlagDivider from "@/components/RussianFlagDivider";
 import Promo from "@/components/Promo";
 import OrderForm from "@/components/OrderForm";
 import Footer from "@/components/Footer";
@@ -55,10 +56,15 @@ const Index = () => {
     <main className="min-h-screen">
       <Header />
       <Hero />
-      {roses.map((rose) => (
-        <RoseSection key={rose.name} {...rose} />
+      {roses.map((rose, i) => (
+        <>
+          <RussianFlagDivider key={`div-${i}`} />
+          <RoseSection key={rose.name} {...rose} />
+        </>
       ))}
+      <RussianFlagDivider />
       <Promo />
+      <RussianFlagDivider />
       <OrderForm />
       <Footer />
     </main>
