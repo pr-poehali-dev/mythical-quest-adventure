@@ -1,11 +1,16 @@
 export default function Featured() {
   return (
     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0 bg-white">
-      <div className="flex-1 h-[400px] lg:h-[800px] mb-8 lg:mb-0 lg:order-2">
+      <div className="flex-1 h-[400px] lg:h-[800px] mb-8 lg:mb-0 lg:order-2 flex flex-col gap-4">
         <img
           src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/files/a82ea93d-da35-492c-955f-509544296f48.jpg"
           alt="Флорист создаёт букет"
-          className="w-full h-full object-cover"
+          className="w-full h-1/2 object-cover"
+        />
+        <img
+          src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/f80295f4-a61b-48ca-a6ee-5c664d90ec33.jpg"
+          alt="Розы Bellini"
+          className="w-full h-1/2 object-cover"
         />
       </div>
       <div className="flex-1 text-left lg:h-[800px] flex flex-col justify-center lg:mr-12 lg:order-1">
