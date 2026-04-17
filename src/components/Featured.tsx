@@ -9,9 +9,10 @@ export default function Featured() {
         />
       </div>
       <div className="flex-1 text-left lg:h-[800px] flex flex-col justify-center lg:mr-12 lg:order-1">
-        <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-600">Почему выбирают нас</h3>
-        <p className="text-2xl lg:text-4xl mb-8 text-neutral-900 leading-tight">
-          Только свежие цветы от российских производителей. Каждый букет собирается вручную с заботой — чтобы ваши чувства были переданы идеально.
+        <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400">Сорт роз</h3>
+        <p className="text-5xl lg:text-7xl font-bold mb-6 text-neutral-900 italic">Bellini</p>
+        <p className="text-lg lg:text-xl mb-8 text-neutral-600 leading-relaxed max-w-md">
+          Нежно-жёлтые розы с медовым оттенком. Тёплые, солнечные и жизнерадостные — идеальный подарок для тех, кто ценит уют.
         </p>
         <a
           href="https://vk.com/flowersrf124"
@@ -19,7 +20,7 @@ export default function Featured() {
           rel="noopener noreferrer"
           className="bg-black text-white border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-white hover:text-black cursor-pointer w-fit uppercase tracking-wide inline-block"
         >
-          Наши работы ВКонтакте
+          Заказать
         </a>
       </div>
     </div>
