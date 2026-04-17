@@ -29,7 +29,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Логотип по центру + текст и кнопка */}
-      <div className="relative z-10 flex flex-col items-center text-center">
+      <div className="relative z-10 flex flex-col items-center text-center mt-32">
         <img
           src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/960cc435-35ac-43a6-83e7-03fa115f81a6.jpg"
           alt="Цветы России — логотип"
