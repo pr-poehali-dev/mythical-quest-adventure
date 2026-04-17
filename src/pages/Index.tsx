@@ -49,6 +49,34 @@ const roses = [
     reverse: false,
     photos: [],
   },
+  {
+    name: "Red Naomi",
+    description: "Классические алые розы с бархатными лепестками. Символ страсти и глубокой любви — для самых важных признаний.",
+    imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/b2454bd8-2778-483a-a002-de7f46e42a03.jpg",
+    reverse: true,
+    photos: [],
+  },
+  {
+    name: "WOW",
+    description: "Яркие оранжево-коралловые розы с эффектным видом. Дарите тем, кого хотите по-настоящему удивить.",
+    imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/03cbc508-12e2-4cc4-9cc6-64aaa17d645f.jpg",
+    reverse: false,
+    photos: [],
+  },
+  {
+    name: "Avalanche",
+    description: "Снежно-белые розы с кремовым оттенком. Чистота и элегантность — идеальный выбор для свадьбы и торжества.",
+    imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/1485beaa-a32b-4338-8227-0b7b26b5accf.jpg",
+    reverse: true,
+    photos: [],
+  },
+  {
+    name: "Heldll",
+    description: "Нежно-розовые розы с пышными бутонами. Мягкие и воздушные — для тех, кто ценит трогательные жесты.",
+    imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/f3e71ca6-fd81-441f-bd10-415aff72eecb.jpg",
+    reverse: false,
+    photos: [],
+  },
 ];
 
 const Index = () => {
