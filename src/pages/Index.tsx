@@ -52,20 +52,46 @@ const roses = [
 ];
 
 const Index = () => {
+  const branchUrl = "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/files/d2ced0c4-28cc-413c-8e83-29dce601e090.jpg";
+
   return (
     <main className="min-h-screen">
       <Header />
       <Hero />
-      {roses.map((rose, i) => (
-        <>
-          <RussianFlagDivider key={`div-${i}`} />
-          <RoseSection key={rose.name} {...rose} />
-        </>
-      ))}
-      <RussianFlagDivider />
-      <Promo />
-      <RussianFlagDivider />
-      <OrderForm />
+
+      {/* Обёртка с декоративными ветками по бокам */}
+      <div className="relative">
+        {/* Ветка слева */}
+        <div className="pointer-events-none select-none absolute left-0 top-0 bottom-0 w-32 z-10 overflow-hidden">
+          <img
+            src={branchUrl}
+            alt=""
+            className="absolute left-[-20px] top-0 w-36 h-full object-cover"
+            style={{ opacity: 0.13, mixBlendMode: "multiply", maskImage: "linear-gradient(to right, black 60%, transparent)" }}
+          />
+        </div>
+        {/* Ветка справа (зеркально) */}
+        <div className="pointer-events-none select-none absolute right-0 top-0 bottom-0 w-32 z-10 overflow-hidden">
+          <img
+            src={branchUrl}
+            alt=""
+            className="absolute right-[-20px] top-0 w-36 h-full object-cover scale-x-[-1]"
+            style={{ opacity: 0.13, mixBlendMode: "multiply", maskImage: "linear-gradient(to left, black 60%, transparent)" }}
+          />
+        </div>
+
+        {roses.map((rose, i) => (
+          <>
+            <RussianFlagDivider key={`div-${i}`} />
+            <RoseSection key={rose.name} {...rose} />
+          </>
+        ))}
+        <RussianFlagDivider />
+        <Promo />
+        <RussianFlagDivider />
+        <OrderForm />
+      </div>
+
       <Footer />
     </main>
   );
