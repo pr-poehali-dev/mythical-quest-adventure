@@ -36,13 +36,13 @@ export default function RoseSection({ name, description, imageUrl, photos = [], 
       <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-center ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
         <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400">Сорт роз</h3>
         <div className="flex items-center gap-4 mb-6">
-          <p className="text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
           <button
             onClick={() => { setActiveIdx(0); setGalleryOpen(true); }}
             className="bg-white text-black border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-black hover:text-white cursor-pointer uppercase tracking-wide shrink-0"
           >
             Живые фото
           </button>
+          <p className="text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
         </div>
         <p className="text-lg lg:text-xl mb-8 text-neutral-600 leading-relaxed max-w-md">
           {description}
