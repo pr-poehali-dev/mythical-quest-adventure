@@ -17,11 +17,14 @@ export default function Promo() {
     >
       <div className="fixed top-[-10vh] left-0 h-[120vh] w-full flex items-center" style={{ backgroundColor: "#f5f0eb" }}>
         <motion.div style={{ y }} className="relative h-full w-1/2 flex items-center justify-start pl-8">
-          <img
-            src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/3e30d022-8a96-439a-87be-25f2cff8bf3d.jpg"
-            alt="Уход за розами"
-            className="h-3/4 w-auto object-contain"
-          />
+          <div className="relative h-3/4">
+            <img
+              src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/3e30d022-8a96-439a-87be-25f2cff8bf3d.jpg"
+              alt="Уход за розами"
+              className="h-full w-auto object-contain"
+            />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to right, transparent 60%, #f5f0eb 100%), linear-gradient(to bottom, #f5f0eb 0%, transparent 15%, transparent 85%, #f5f0eb 100%)" }} />
+          </div>
         </motion.div>
       </div>
 
