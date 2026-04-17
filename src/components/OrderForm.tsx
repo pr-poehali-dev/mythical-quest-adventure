@@ -32,7 +32,7 @@ export default function OrderForm() {
   };
 
   return (
-    <section id="order" className="bg-white px-6 py-24">
+    <section id="order" className="px-6 py-24" style={{ backgroundColor: "#f5f0eb" }}>
       <div className="max-w-2xl mx-auto">
         <p className="uppercase text-sm tracking-wide text-neutral-500 mb-4">Оформить заказ</p>
         <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 leading-tight mb-12">

@@ -15,7 +15,7 @@ export default function RoseSection({ name, description, imageUrl, photos = [], 
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0 bg-white">
+    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0" style={{ backgroundColor: "#f5f0eb" }}>
       <div className={`flex justify-end mb-8 lg:mb-0 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
         <img
           src={imageUrl}
