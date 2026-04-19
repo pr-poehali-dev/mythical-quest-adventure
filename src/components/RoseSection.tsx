@@ -5,12 +5,13 @@ import Icon from "@/components/ui/icon";
 interface RoseSectionProps {
   name: string;
   description: string;
+  fullDescription?: string[];
   imageUrl: string;
   photos?: string[];
   reverse?: boolean;
 }
 
-export default function RoseSection({ name, description, imageUrl, photos = [], reverse = false }: RoseSectionProps) {
+export default function RoseSection({ name, description, fullDescription, imageUrl, photos = [], reverse = false }: RoseSectionProps) {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -44,9 +45,17 @@ export default function RoseSection({ name, description, imageUrl, photos = [], 
           </button>
           <p className="text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
         </div>
-        <p className="text-lg lg:text-xl mb-8 text-neutral-600 leading-relaxed max-w-md">
-          {description}
-        </p>
+        {fullDescription ? (
+          <div className="mb-8 flex flex-col gap-4 max-w-md">
+            {fullDescription.map((para, i) => (
+              <p key={i} className="text-base lg:text-lg text-neutral-600 leading-relaxed">{para}</p>
+            ))}
+          </div>
+        ) : (
+          <p className="text-lg lg:text-xl mb-8 text-neutral-600 leading-relaxed max-w-md">
+            {description}
+          </p>
+        )}
         <div className="flex flex-wrap gap-3">
           <a
             href="https://vk.com/flowersrf124"
