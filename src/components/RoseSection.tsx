@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Icon from "@/components/ui/icon";
+import BranchModal from "@/components/BranchModal";
 
 interface RoseSectionProps {
   name: string;
@@ -13,6 +14,7 @@ interface RoseSectionProps {
 
 export default function RoseSection({ name, description, fullDescription, imageUrl, photos = [], reverse = false }: RoseSectionProps) {
   const [galleryOpen, setGalleryOpen] = useState(false);
+  const [branchOpen, setBranchOpen] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
@@ -57,15 +59,14 @@ export default function RoseSection({ name, description, fullDescription, imageU
           </p>
         )}
         <div className="flex flex-wrap gap-3">
-          <a
-            href="https://vk.com/flowersrf124"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => setBranchOpen(true)}
             className="bg-black text-white border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-white hover:text-black cursor-pointer uppercase tracking-wide inline-block"
           >
             Заказать
-          </a>
+          </button>
         </div>
+        <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} />
       </div>
 
       {/* Галерея */}

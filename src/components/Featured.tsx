@@ -1,4 +1,9 @@
+import { useState } from "react";
+import BranchModal from "@/components/BranchModal";
+
 export default function Featured() {
+  const [branchOpen, setBranchOpen] = useState(false);
+
   return (
     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0 bg-white">
       <div className="flex justify-end lg:order-2 mb-8 lg:mb-0">
@@ -14,15 +19,14 @@ export default function Featured() {
         <p className="text-lg lg:text-xl mb-8 text-neutral-600 leading-relaxed max-w-md">
           Нежно-жёлтые розы с медовым оттенком. Тёплые, солнечные и жизнерадостные — идеальный подарок для тех, кто ценит уют.
         </p>
-        <a
-          href="https://vk.com/flowersrf124"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() => setBranchOpen(true)}
           className="bg-black text-white border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-white hover:text-black cursor-pointer w-fit uppercase tracking-wide inline-block"
         >
           Заказать
-        </a>
+        </button>
       </div>
+      <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} />
     </div>
   );
 }
