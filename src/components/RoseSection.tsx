@@ -46,7 +46,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
           <p className="text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
         </div>
         {fullDescription ? (
-          <div className="mb-8 flex flex-col gap-4 max-w-md">
+          <div className="mb-8 flex flex-col gap-4 max-w-md mt-[100px]">
             {fullDescription.map((para, i) => (
               <p key={i} className="text-base lg:text-lg text-neutral-600 leading-relaxed">{para}</p>
             ))}
