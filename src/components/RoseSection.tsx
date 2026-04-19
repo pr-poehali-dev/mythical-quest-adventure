@@ -17,7 +17,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
 
   return (
     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0" style={{ backgroundColor: "#f5f0eb" }}>
-      <div className={`relative flex justify-end mb-8 lg:mb-0 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
+      <div className={`relative flex flex-col items-end mb-8 lg:mb-0 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
         <div className="relative w-[200px] md:w-[280px] lg:w-[360px]">
           <img
             src={imageUrl}
@@ -33,14 +33,12 @@ export default function RoseSection({ name, description, fullDescription, imageU
           {/* Градиент справа */}
           <div className="absolute inset-y-0 right-0 w-8 pointer-events-none" style={{ background: `linear-gradient(to left, #f5f0eb, transparent)` }} />
         </div>
-        <div className="flex justify-end mt-3">
-          <button
-            onClick={() => { setActiveIdx(0); setGalleryOpen(true); }}
-            className="bg-white text-black border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-black hover:text-white cursor-pointer uppercase tracking-wide"
-          >
-            Живые фото
-          </button>
-        </div>
+        <button
+          onClick={() => { setActiveIdx(0); setGalleryOpen(true); }}
+          className="mt-4 bg-white text-black border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-black hover:text-white cursor-pointer uppercase tracking-wide"
+        >
+          Живые фото
+        </button>
       </div>
       <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-start -mt-[556px] ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
         <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400">Сорт роз</h3>
