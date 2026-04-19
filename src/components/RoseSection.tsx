@@ -41,7 +41,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
         </button>
       </div>
       <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-start -mt-[556px] ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
-        <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400">Сорт роз</h3>
+        <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400 mt-[100px]">Сорт роз</h3>
         <div className="flex items-center gap-4 mb-6">
           <p className="text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
         </div>
