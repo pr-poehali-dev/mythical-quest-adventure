@@ -1,9 +1,11 @@
 import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
+import BranchModal from "@/components/BranchModal";
 
 export default function Hero() {
   const container = useRef<HTMLDivElement>(null);
   const [showContacts, setShowContacts] = useState(false);
+  const [branchOpen, setBranchOpen] = useState(false);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end start"],
@@ -40,7 +42,7 @@ export default function Hero() {
           Свежие букеты с любовью — для особых моментов и каждого дня
         </p>
         <button
-          onClick={() => setShowContacts(true)}
+          onClick={() => setBranchOpen(true)}
           className="inline-block px-8 py-3 uppercase text-sm tracking-wide font-medium transition-all duration-300 border-2 rounded cursor-pointer"
           style={{ backgroundColor: "#3D5DAE", color: "#ffffff", borderColor: "#3D5DAE" }}
           onMouseEnter={e => {
@@ -112,6 +114,7 @@ export default function Hero() {
           </motion.div>
         )}
       </AnimatePresence>
+      <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} />
     </div>
   );
 }

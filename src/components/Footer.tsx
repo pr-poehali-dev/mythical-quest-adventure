@@ -1,5 +1,10 @@
+import { useState } from "react";
+import BranchModal from "@/components/BranchModal";
+
 export default function Footer() {
+  const [branchOpen, setBranchOpen] = useState(false);
   return (
+    <>
     <div
       className="relative h-[400px] sm:h-[600px] lg:h-[800px] max-h-[800px]"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
@@ -26,14 +31,12 @@ export default function Footer() {
                 >
                   Каталог
                 </a>
-                <a
-                  href="https://vk.com/flowersrf124"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
+                <button
+                  onClick={() => setBranchOpen(true)}
+                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base text-left cursor-pointer"
                 >
                   Заказать
-                </a>
+                </button>
               </div>
               <div className="flex flex-col gap-1 sm:gap-2">
                 <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Контакты</h3>
@@ -58,5 +61,7 @@ export default function Footer() {
         </div>
       </div>
     </div>
+    <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} />
+    </>
   );
 }
