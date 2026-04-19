@@ -33,29 +33,12 @@ export default function RoseSection({ name, description, fullDescription, imageU
           {/* Градиент справа */}
           <div className="absolute inset-y-0 right-0 w-8 pointer-events-none" style={{ background: `linear-gradient(to left, #f5f0eb, transparent)` }} />
         </div>
-        <div className="mt-4 flex items-center gap-1">
-          {/* Ветка слева — зеркальная */}
-          <img
-            src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/files/0d054d80-b788-4c81-a19a-479ecd1d8543.jpg"
-            alt=""
-            className="w-16 h-16 object-contain pointer-events-none select-none"
-            style={{ transform: "scaleX(-1)" }}
-          />
-
-          <button
-            onClick={() => { setActiveIdx(0); setGalleryOpen(true); }}
-            className="bg-white text-black border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-black hover:text-white cursor-pointer uppercase tracking-wide"
-          >
-            Живые фото
-          </button>
-
-          {/* Ветка справа */}
-          <img
-            src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/files/0d054d80-b788-4c81-a19a-479ecd1d8543.jpg"
-            alt=""
-            className="w-16 h-16 object-contain pointer-events-none select-none"
-          />
-        </div>
+        <button
+          onClick={() => { setActiveIdx(0); setGalleryOpen(true); }}
+          className="mt-4 bg-white text-black border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-black hover:text-white cursor-pointer uppercase tracking-wide"
+        >
+          Живые фото
+        </button>
       </div>
       <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-start -mt-[556px] ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
         <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400">Сорт роз</h3>
