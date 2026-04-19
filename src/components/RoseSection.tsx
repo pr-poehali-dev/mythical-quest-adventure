@@ -34,7 +34,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
           <div className="absolute inset-y-0 right-0 w-8 pointer-events-none" style={{ background: `linear-gradient(to left, #f5f0eb, transparent)` }} />
         </div>
       </div>
-      <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-start pt-0 ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
+      <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-start -mt-40 ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
         <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400">Сорт роз</h3>
         <div className="flex items-center gap-4 mb-6">
           <button
