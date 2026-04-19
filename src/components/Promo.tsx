@@ -28,9 +28,7 @@ export default function Promo() {
         </motion.div>
       </div>
 
-      <h3 className="absolute top-12 right-6 text-white uppercase z-10 text-sm md:text-base lg:text-lg">
-        Ассортимент
-      </h3>
+
 
 
     </div>
