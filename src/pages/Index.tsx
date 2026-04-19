@@ -100,10 +100,10 @@ const Index = () => {
       <Header />
       <Hero />
       {roses.map((rose, i) => (
-        <>
-          <RussianFlagDivider key={`div-${i}`} />
-          <RoseSection key={rose.name} {...rose} />
-        </>
+        <div key={rose.name}>
+          <RussianFlagDivider />
+          <RoseSection {...rose} />
+        </div>
       ))}
       <RussianFlagDivider />
       <Promo />
