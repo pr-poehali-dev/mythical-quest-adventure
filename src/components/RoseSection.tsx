@@ -16,7 +16,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0" style={{ backgroundColor: "#f5f0eb" }}>
+    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0" style={{ backgroundColor: "#faf7f4" }}>
       <div className={`relative flex flex-col items-end mb-8 lg:mb-0 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
         <div className="relative w-[200px] md:w-[280px] lg:w-[360px]">
           <img
@@ -25,13 +25,13 @@ export default function RoseSection({ name, description, fullDescription, imageU
             className="w-full object-contain"
           />
           {/* Градиент сверху */}
-          <div className="absolute inset-x-0 top-0 h-12 pointer-events-none" style={{ background: "linear-gradient(to bottom, #f5f0eb, transparent)" }} />
+          <div className="absolute inset-x-0 top-0 h-12 pointer-events-none" style={{ background: "linear-gradient(to bottom, #faf7f4, transparent)" }} />
           {/* Градиент снизу */}
-          <div className="absolute inset-x-0 bottom-0 h-12 pointer-events-none" style={{ background: "linear-gradient(to top, #f5f0eb, transparent)" }} />
+          <div className="absolute inset-x-0 bottom-0 h-12 pointer-events-none" style={{ background: "linear-gradient(to top, #faf7f4, transparent)" }} />
           {/* Градиент слева */}
-          <div className="absolute inset-y-0 left-0 w-8 pointer-events-none" style={{ background: `linear-gradient(to right, #f5f0eb, transparent)` }} />
+          <div className="absolute inset-y-0 left-0 w-8 pointer-events-none" style={{ background: `linear-gradient(to right, #faf7f4, transparent)` }} />
           {/* Градиент справа */}
-          <div className="absolute inset-y-0 right-0 w-8 pointer-events-none" style={{ background: `linear-gradient(to left, #f5f0eb, transparent)` }} />
+          <div className="absolute inset-y-0 right-0 w-8 pointer-events-none" style={{ background: `linear-gradient(to left, #faf7f4, transparent)` }} />
         </div>
         <button
           onClick={() => { setActiveIdx(0); setGalleryOpen(true); }}
