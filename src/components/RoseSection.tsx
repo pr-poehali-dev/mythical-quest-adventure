@@ -33,12 +33,42 @@ export default function RoseSection({ name, description, fullDescription, imageU
           {/* Градиент справа */}
           <div className="absolute inset-y-0 right-0 w-8 pointer-events-none" style={{ background: `linear-gradient(to left, #f5f0eb, transparent)` }} />
         </div>
-        <button
-          onClick={() => { setActiveIdx(0); setGalleryOpen(true); }}
-          className="mt-4 bg-white text-black border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-black hover:text-white cursor-pointer uppercase tracking-wide"
-        >
-          Живые фото
-        </button>
+        <div className="mt-4 flex items-center gap-2">
+          {/* Ветка слева */}
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: "scaleX(-1)" }}>
+            <path d="M44 44 Q32 36 28 24 Q24 12 36 8" stroke="#7a5c3a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+            <path d="M28 24 Q20 20 18 12" stroke="#7a5c3a" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+            <path d="M34 16 Q30 14 29 10" stroke="#7a5c3a" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+            {/* листья */}
+            <ellipse cx="18" cy="11" rx="4" ry="2.5" fill="#6aab5e" transform="rotate(-30 18 11)" opacity="0.85"/>
+            <ellipse cx="29" cy="9" rx="3.5" ry="2" fill="#5a9b4e" transform="rotate(-50 29 9)" opacity="0.8"/>
+            <ellipse cx="25" cy="20" rx="4" ry="2" fill="#6aab5e" transform="rotate(10 25 20)" opacity="0.75"/>
+            <ellipse cx="38" cy="10" rx="3" ry="1.8" fill="#5a9b4e" transform="rotate(-60 38 10)" opacity="0.8"/>
+            {/* бутон */}
+            <circle cx="36" cy="8" r="3" fill="#d45f5f" opacity="0.9"/>
+            <path d="M34 7 Q36 4 38 7" stroke="#b84040" strokeWidth="0.8" fill="none"/>
+          </svg>
+
+          <button
+            onClick={() => { setActiveIdx(0); setGalleryOpen(true); }}
+            className="bg-white text-black border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-black hover:text-white cursor-pointer uppercase tracking-wide"
+          >
+            Живые фото
+          </button>
+
+          {/* Ветка справа */}
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M44 44 Q32 36 28 24 Q24 12 36 8" stroke="#7a5c3a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+            <path d="M28 24 Q20 20 18 12" stroke="#7a5c3a" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+            <path d="M34 16 Q30 14 29 10" stroke="#7a5c3a" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+            <ellipse cx="18" cy="11" rx="4" ry="2.5" fill="#6aab5e" transform="rotate(-30 18 11)" opacity="0.85"/>
+            <ellipse cx="29" cy="9" rx="3.5" ry="2" fill="#5a9b4e" transform="rotate(-50 29 9)" opacity="0.8"/>
+            <ellipse cx="25" cy="20" rx="4" ry="2" fill="#6aab5e" transform="rotate(10 25 20)" opacity="0.75"/>
+            <ellipse cx="38" cy="10" rx="3" ry="1.8" fill="#5a9b4e" transform="rotate(-60 38 10)" opacity="0.8"/>
+            <circle cx="36" cy="8" r="3" fill="#d45f5f" opacity="0.9"/>
+            <path d="M34 7 Q36 4 38 7" stroke="#b84040" strokeWidth="0.8" fill="none"/>
+          </svg>
+        </div>
       </div>
       <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-start -mt-[556px] ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
         <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400">Сорт роз</h3>
