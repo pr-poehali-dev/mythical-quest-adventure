@@ -2,42 +2,91 @@ import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion"
 import { useRef, useState } from "react";
 import BranchModal from "@/components/BranchModal";
 
+const ROSES = ["🌹", "🌸", "🌺", "🌷", "🌹", "🌸", "🌺", "🌷", "🌹", "🌸", "🌺", "🌷", "🌹", "🌸", "🌺", "🌷", "🌹", "🌸", "🌺", "🌷"];
+
 export default function Hero() {
   const container = useRef<HTMLDivElement>(null);
   const [showContacts, setShowContacts] = useState(false);
   const [branchOpen, setBranchOpen] = useState(false);
+  const [burst, setBurst] = useState(false);
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0vh", "50vh"]);
 
+  const handleLogoClick = () => {
+    setBurst(true);
+    setTimeout(() => setBurst(false), 1200);
+  };
+
   return (
     <div
       ref={container}
       className="relative flex items-center justify-center h-screen overflow-hidden"
     >
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 w-full h-full"
-      >
-        {/* Фон — живые розы */}
+      <motion.div style={{ y }} className="absolute inset-0 w-full h-full">
         <img
           src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/54f0966a-247d-4207-9b16-4f0b843a5044.jpg"
           alt="Белые розы"
           className="w-full h-full object-cover"
         />
-        {/* Лёгкое затемнение для читаемости */}
         <div className="absolute inset-0 bg-white/30" />
       </motion.div>
 
-      {/* Логотип по центру + текст и кнопка */}
       <div className="relative z-10 flex flex-col items-center text-center mt-16 md:mt-32 px-4">
-        <img
-          src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/960cc435-35ac-43a6-83e7-03fa115f81a6.jpg"
-          alt="Цветы России — логотип"
-          className="w-40 md:w-72 lg:w-80 mb-6 md:mb-8 rounded-2xl shadow-2xl"
-        />
+
+        {/* Логотип с анимацией */}
+        <div className="relative cursor-pointer mb-6 md:mb-8" onClick={handleLogoClick}>
+          <motion.img
+            src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/960cc435-35ac-43a6-83e7-03fa115f81a6.jpg"
+            alt="Цветы России — логотип"
+            className="w-40 md:w-72 lg:w-80 rounded-2xl shadow-2xl select-none"
+            animate={burst ? { scale: [1, 1.08, 0], opacity: [1, 1, 0] } : { scale: 1, opacity: 1 }}
+            transition={{ duration: 0.45, ease: "easeIn" }}
+          />
+
+          {/* Розы разлетаются */}
+          <AnimatePresence>
+            {burst && ROSES.map((rose, i) => {
+              const angle = (i / ROSES.length) * 360;
+              const dist = 120 + Math.random() * 100;
+              const rad = (angle * Math.PI) / 180;
+              const tx = Math.cos(rad) * dist;
+              const ty = Math.sin(rad) * dist;
+              return (
+                <motion.span
+                  key={i}
+                  className="absolute text-2xl pointer-events-none select-none"
+                  style={{ top: "50%", left: "50%", x: "-50%", y: "-50%" }}
+                  initial={{ opacity: 1, x: "-50%", y: "-50%", scale: 0.5 }}
+                  animate={{ opacity: 0, x: `calc(-50% + ${tx}px)`, y: `calc(-50% + ${ty}px)`, scale: 1.4, rotate: angle }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.9, ease: "easeOut", delay: i * 0.02 }}
+                >
+                  {rose}
+                </motion.span>
+              );
+            })}
+          </AnimatePresence>
+
+          {/* Логотип появляется обратно */}
+          <AnimatePresence>
+            {burst && (
+              <motion.img
+                key="logo-back"
+                src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/960cc435-35ac-43a6-83e7-03fa115f81a6.jpg"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7, duration: 0.4, type: "spring", stiffness: 200 }}
+              />
+            )}
+          </AnimatePresence>
+        </div>
+
         <p className="text-base md:text-xl max-w-xl mx-auto mb-6 md:mb-8 font-medium drop-shadow" style={{ color: "#1e3a8a" }}>
           Свежие розы с любовью — для особых моментов и каждого дня
         </p>
@@ -58,7 +107,6 @@ export default function Hero() {
         </button>
       </div>
 
-      {/* Модалка с контактами */}
       <AnimatePresence>
         {showContacts && (
           <motion.div
