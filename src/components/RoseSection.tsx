@@ -66,7 +66,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
             Заказать
           </button>
         </div>
-        <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} />
+        <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} roseName={name} />
       </div>
 
       {/* Галерея */}

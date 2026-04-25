@@ -11,14 +11,30 @@ const branches = [
 interface BranchModalProps {
   open: boolean;
   onClose: () => void;
+  roseName?: string;
 }
 
-export default function BranchModal({ open, onClose }: BranchModalProps) {
+export default function BranchModal({ open, onClose, roseName }: BranchModalProps) {
   const [selectedBranch, setSelectedBranch] = useState<typeof branches[0] | null>(null);
 
   function handleClose() {
     setSelectedBranch(null);
     onClose();
+  }
+
+  function buildMessage(branch: typeof branches[0]) {
+    return encodeURIComponent(
+      `Здравствуйте, хочу заказать розы (сорт: ${roseName ?? "не указан"}) с филиала ${branch.name}`
+    );
+  }
+
+  function telegramUrl(branch: typeof branches[0]) {
+    const username = branch.telegram.replace("https://t.me/", "");
+    return `https://t.me/${username}?text=${buildMessage(branch)}`;
+  }
+
+  function maxUrl(branch: typeof branches[0]) {
+    return `${branch.max}?text=${buildMessage(branch)}`;
   }
 
   return (
@@ -90,7 +106,7 @@ export default function BranchModal({ open, onClose }: BranchModalProps) {
                   <p className="text-sm font-medium mb-6" style={{ color: "#3D5DAE" }}>{selectedBranch.phone}</p>
                   <div className="flex flex-col gap-3">
                     <a
-                      href={selectedBranch.telegram}
+                      href={telegramUrl(selectedBranch)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 border border-neutral-200 rounded-xl px-5 py-4 hover:border-[#229ED9] hover:bg-blue-50 transition-all duration-200 group"
@@ -104,7 +120,7 @@ export default function BranchModal({ open, onClose }: BranchModalProps) {
                       </div>
                     </a>
                     <a
-                      href={selectedBranch.max}
+                      href={maxUrl(selectedBranch)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 border border-neutral-200 rounded-xl px-5 py-4 hover:border-[#0077FF] hover:bg-blue-50 transition-all duration-200 group"
