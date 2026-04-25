@@ -116,7 +116,7 @@ const Index = () => {
       <Header />
       <Hero />
       {roses.map((rose, i) => (
-        <div key={rose.name}>
+        <div key={rose.name} id={i === 0 ? "catalog" : undefined}>
           <RussianFlagDivider />
           <RoseSection {...rose} />
         </div>
