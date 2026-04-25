@@ -17,8 +17,9 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0vh", "50vh"]);
 
   const handleLogoClick = () => {
+    if (burst) return;
     setBurst(true);
-    setTimeout(() => setBurst(false), 1200);
+    setTimeout(() => setBurst(false), 1500);
   };
 
   return (
@@ -43,8 +44,8 @@ export default function Hero() {
             src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/960cc435-35ac-43a6-83e7-03fa115f81a6.jpg"
             alt="Цветы России — логотип"
             className="w-40 md:w-72 lg:w-80 rounded-2xl shadow-2xl select-none"
-            animate={burst ? { scale: [1, 1.05, 0.3], opacity: [1, 1, 0] } : { scale: 1, opacity: 1 }}
-            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+            animate={burst ? { scale: [1, 1.05, 0, 0, 1], opacity: [1, 1, 0, 0, 1] } : { scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5, ease: "easeInOut", times: [0, 0.2, 0.45, 0.7, 1] }}
           />
 
           {/* Розы разлетаются */}
@@ -71,20 +72,7 @@ export default function Hero() {
             })}
           </AnimatePresence>
 
-          {/* Логотип появляется обратно */}
-          <AnimatePresence>
-            {burst && (
-              <motion.img
-                key="logo-back"
-                src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/960cc435-35ac-43a6-83e7-03fa115f81a6.jpg"
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.9, duration: 0.6, type: "spring", stiffness: 120, damping: 18 }}
-              />
-            )}
-          </AnimatePresence>
+
         </div>
 
         <p className="text-base md:text-xl max-w-xl mx-auto mb-6 md:mb-8 font-medium drop-shadow" style={{ color: "#1e3a8a" }}>
