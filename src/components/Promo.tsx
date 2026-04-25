@@ -23,14 +23,25 @@ export default function Promo() {
               alt="Уход за розами"
               className="h-full w-auto object-contain"
             />
-            <div className="absolute inset-0" style={{ background: "linear-gradient(to right, transparent 95%, #f5f0eb 100%), linear-gradient(to bottom, #f5f0eb 0%, transparent 2%, transparent 98%, #f5f0eb 100%)" }} />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to right, transparent 95%, #faf7f4 100%), linear-gradient(to bottom, #faf7f4 0%, transparent 2%, transparent 98%, #faf7f4 100%)" }} />
           </div>
         </motion.div>
+
+        <div className="absolute right-0 md:right-8 lg:right-16 top-1/2 -translate-y-1/2 max-w-xs lg:max-w-sm px-6 md:px-0 flex flex-col gap-5">
+          <h2 className="font-serif text-3xl lg:text-4xl font-bold italic text-neutral-900 leading-tight">
+            Розы — живые.<br/>Почти как мы.
+          </h2>
+          <p className="text-neutral-600 text-sm lg:text-base leading-relaxed">
+            Они тоже хотят пить, не любят сквозняки и обижаются, если их ставят рядом с бананами. Да-да, бананы выделяют газ, который заставляет розы стареть быстрее. 🍌
+          </p>
+          <p className="text-neutral-600 text-sm lg:text-base leading-relaxed">
+            Меняйте воду каждые 2 дня, подрезайте стебли под углом и держите подальше от батареи — и розы отблагодарят вас неделей, а то и двумя. 🌹
+          </p>
+          <p className="text-neutral-500 text-xs lg:text-sm leading-relaxed italic">
+            Ну и не забывайте говорить им комплименты. Учёные пока спорят, но мы уверены — помогает. 💬
+          </p>
+        </div>
       </div>
-
-
-
-
     </div>
   );
 }
