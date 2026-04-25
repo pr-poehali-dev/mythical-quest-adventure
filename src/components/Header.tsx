@@ -29,6 +29,14 @@ export default function Header({ className }: HeaderProps) {
           >
             Telegram
           </a>
+          <a
+            href="https://www.instagram.com/cvetyikrasnoyarsk?igsh=Z3B1bTF6Mmpmbjdn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-black hover:text-neutral-600 transition-colors duration-300 uppercase text-sm font-medium"
+          >
+            Instagram
+          </a>
         </nav>
       </div>
     </header>
