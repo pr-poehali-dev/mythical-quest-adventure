@@ -58,7 +58,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
             {description}
           </p>
         )}
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 relative z-10">
           <button
             onClick={() => setBranchOpen(true)}
             className="bg-black text-white border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-white hover:text-black cursor-pointer uppercase tracking-wide inline-block"
