@@ -23,7 +23,7 @@ export default function OrderForm() {
             </div>
           ))}
         </div>
-        <div className="w-full h-96 overflow-hidden rounded">
+        <div className="w-full h-64 md:h-96 overflow-hidden rounded">
           <iframe
             src="https://yandex.ru/map-widget/v1/?ll=92.8545%2C56.0131&z=12&pt=92.897425%2C56.042426%2Cpmrdm1~92.800407%2C56.013663%2Cpmrdm2~92.863657%2C55.982829%2Cpmrdm3"
             width="100%"

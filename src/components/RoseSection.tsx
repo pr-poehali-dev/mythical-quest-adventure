@@ -18,9 +18,9 @@ export default function RoseSection({ name, description, fullDescription, imageU
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0" style={{ backgroundColor: "#faf7f4" }}>
-      <div className={`relative flex flex-col items-end mb-8 lg:mb-0 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
-        <div className="relative w-[200px] md:w-[280px] lg:w-[360px]">
+    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-4 md:px-6 py-10 lg:py-0" style={{ backgroundColor: "#faf7f4" }}>
+      <div className={`relative flex flex-col items-center lg:items-end mb-6 lg:mb-0 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
+        <div className="relative w-[240px] md:w-[280px] lg:w-[360px]">
           <img
             src={imageUrl}
             alt={`Розы ${name}`}
@@ -42,19 +42,19 @@ export default function RoseSection({ name, description, fullDescription, imageU
           Живые фото
         </button>
       </div>
-      <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-start -mt-[556px] ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
-        <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400 mt-[100px]">Сорт роз</h3>
-        <div className="flex items-center gap-4 mb-6">
-          <p className="text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
+      <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-start lg:-mt-[556px] ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
+        <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400 lg:mt-[100px]">Сорт роз</h3>
+        <div className="flex items-center gap-4 mb-4 lg:mb-6">
+          <p className="text-4xl md:text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
         </div>
         {fullDescription ? (
-          <div className="mb-8 flex flex-col gap-4 max-w-md mt-[100px]">
+          <div className="mb-6 lg:mb-8 flex flex-col gap-3 lg:gap-4 max-w-md lg:mt-[100px]">
             {fullDescription.map((para, i) => (
               <p key={i} className="text-base lg:text-lg text-neutral-600 leading-relaxed">{para}</p>
             ))}
           </div>
         ) : (
-          <p className="text-lg lg:text-xl mb-8 text-neutral-600 leading-relaxed max-w-md">
+          <p className="text-base lg:text-xl mb-6 lg:mb-8 text-neutral-600 leading-relaxed max-w-md">
             {description}
           </p>
         )}

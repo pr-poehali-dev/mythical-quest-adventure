@@ -32,13 +32,13 @@ export default function Hero() {
       </motion.div>
 
       {/* Логотип по центру + текст и кнопка */}
-      <div className="relative z-10 flex flex-col items-center text-center mt-32">
+      <div className="relative z-10 flex flex-col items-center text-center mt-16 md:mt-32 px-4">
         <img
           src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/960cc435-35ac-43a6-83e7-03fa115f81a6.jpg"
           alt="Цветы России — логотип"
-          className="w-56 md:w-72 lg:w-80 mb-8 rounded-2xl shadow-2xl"
+          className="w-40 md:w-72 lg:w-80 mb-6 md:mb-8 rounded-2xl shadow-2xl"
         />
-        <p className="text-lg md:text-xl max-w-xl mx-auto px-6 mb-8 font-medium drop-shadow" style={{ color: "#1e3a8a" }}>
+        <p className="text-base md:text-xl max-w-xl mx-auto mb-6 md:mb-8 font-medium drop-shadow" style={{ color: "#1e3a8a" }}>
           Свежие букеты с любовью — для особых моментов и каждого дня
         </p>
         <button
