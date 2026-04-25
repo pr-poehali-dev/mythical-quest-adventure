@@ -50,6 +50,7 @@ const roses = [
   {
     name: "Revival",
     description: "Светло-розовые, воздушные и нежные. Символ нового начала — дарите при важных переменах в жизни.",
+    budSize: "small",
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/0c7f6a29-3b37-404c-94d0-f9c15bf12f87.jpg",
     reverse: true,
     photos: [],
