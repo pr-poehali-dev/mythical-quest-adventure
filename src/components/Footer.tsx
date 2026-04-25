@@ -88,17 +88,57 @@ export default function Footer() {
         onClick={() => setDeliveryOpen(false)}
       >
         <div
-          className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-lg w-full"
+          className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
           onClick={e => e.stopPropagation()}
         >
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex justify-between items-center mb-5">
             <h2 className="text-xl font-bold text-neutral-900 uppercase tracking-wide">Условия доставки</h2>
             <button onClick={() => setDeliveryOpen(false)} className="text-neutral-400 hover:text-black transition-colors">
               <Icon name="X" size={22} />
             </button>
           </div>
-          <div className="text-neutral-600 text-base leading-relaxed space-y-3">
-            <p>Здесь появится описание условий доставки.</p>
+
+          {/* Карта */}
+          <div className="w-full h-56 md:h-72 rounded-xl overflow-hidden mb-5">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad6b5c57c8ce93861f69932b259269131ff9c02a351448a21a239a6a9ce015fc4&amp;source=constructorLink"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              allowFullScreen
+              style={{ border: 0 }}
+            />
+          </div>
+
+          {/* Филиалы */}
+          <div className="space-y-4 text-sm text-neutral-700">
+            <div className="border-b border-neutral-100 pb-4">
+              <p className="font-semibold text-neutral-900 mb-1">Академика Киренского 71</p>
+              <p className="text-neutral-500 text-xs mb-2">Зоны: зелёная, серая, чёрная</p>
+              <div className="flex gap-4">
+                <span>До подъезда — <strong>400 ₽</strong></span>
+                <span>До квартиры — <strong>500 ₽</strong></span>
+              </div>
+            </div>
+            <div className="border-b border-neutral-100 pb-4">
+              <p className="font-semibold text-neutral-900 mb-1">Алексеева 111</p>
+              <p className="text-neutral-500 text-xs mb-2">Зоны: голубая, серая, коричневая</p>
+              <div className="flex gap-4">
+                <span>До подъезда — <strong>400 ₽</strong></span>
+                <span>До квартиры — <strong>500 ₽</strong></span>
+              </div>
+            </div>
+            <div className="border-b border-neutral-100 pb-4">
+              <p className="font-semibold text-neutral-900 mb-1">Семафорная 191</p>
+              <p className="text-neutral-500 text-xs mb-2">Зоны: красная, чёрная, коричневая</p>
+              <div className="flex gap-4">
+                <span>До подъезда — <strong>400 ₽</strong></span>
+                <span>До квартиры — <strong>500 ₽</strong></span>
+              </div>
+            </div>
+            <p className="text-neutral-500 text-xs pt-1">
+              Адреса, не входящие в зону покрытия интересующего вас филиала, рассчитываются в индивидуальном порядке.
+            </p>
           </div>
         </div>
       </div>
