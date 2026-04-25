@@ -25,6 +25,7 @@ export default function Hero() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-white/30" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-white" />
       </motion.div>
 
       <div className="relative z-10 flex flex-col items-center text-center mt-16 md:mt-32 px-4">
