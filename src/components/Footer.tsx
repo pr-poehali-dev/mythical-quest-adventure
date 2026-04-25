@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
       </div>
     </div>
-    <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} />
+    <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} roseName="не указан" />
     </>
   );
 }

@@ -26,7 +26,7 @@ export default function Featured() {
           Заказать
         </button>
       </div>
-      <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} />
+      <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} roseName="Bellini" />
     </div>
   );
 }

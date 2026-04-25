@@ -114,7 +114,7 @@ export default function Hero() {
           </motion.div>
         )}
       </AnimatePresence>
-      <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} />
+      <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} roseName="не указан" />
     </div>
   );
 }
