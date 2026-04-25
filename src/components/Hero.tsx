@@ -39,7 +39,7 @@ export default function Hero() {
           className="w-40 md:w-72 lg:w-80 mb-6 md:mb-8 rounded-2xl shadow-2xl"
         />
         <p className="text-base md:text-xl max-w-xl mx-auto mb-6 md:mb-8 font-medium drop-shadow" style={{ color: "#1e3a8a" }}>
-          Свежие букеты с любовью — для особых моментов и каждого дня
+          Свежие розы с любовью — для особых моментов и каждого дня
         </p>
         <button
           onClick={() => setBranchOpen(true)}
