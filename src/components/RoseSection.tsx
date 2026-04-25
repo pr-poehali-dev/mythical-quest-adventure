@@ -93,7 +93,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:px-4"
+            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:px-4 pb-16 sm:pb-0"
             style={{ backgroundColor: "rgba(0,0,0,0.75)" }}
             onClick={() => setPriceOpen(false)}
           >
@@ -160,7 +160,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:px-4"
+            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:px-4 pb-16 sm:pb-0"
             style={{ backgroundColor: "rgba(0,0,0,0.85)" }}
             onClick={() => setGalleryOpen(false)}
           >
