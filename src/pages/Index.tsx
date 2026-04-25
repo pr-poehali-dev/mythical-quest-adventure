@@ -18,6 +18,7 @@ const roses = [
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/f80295f4-a61b-48ca-a6ee-5c664d90ec33.jpg",
     reverse: false,
     photos: [],
+    budSize: "medium",
   },
   {
     name: "Novi",

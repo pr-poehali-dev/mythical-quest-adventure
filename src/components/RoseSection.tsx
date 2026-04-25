@@ -10,6 +10,7 @@ interface RoseSectionProps {
   imageUrl: string;
   photos?: string[];
   reverse?: boolean;
+  budSize?: "small" | "medium" | "large";
 }
 
 const PRICE_DATA = [
@@ -23,7 +24,23 @@ const PRICE_DATA = [
 
 const STEMS = ["40", "50", "60", "70"];
 
-export default function RoseSection({ name, description, fullDescription, imageUrl, photos = [], reverse = false }: RoseSectionProps) {
+const BUD_SIZES = ["small", "medium", "large"] as const;
+
+const BudIcon = ({ size, active }: { size: string; active: boolean }) => {
+  const s = size === "small" ? 22 : size === "medium" ? 28 : 34;
+  return (
+    <svg width={s} height={s + 6} viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style={{ strokeWidth: active ? 2.2 : 1.2, opacity: active ? 1 : 0.35 }}>
+      <path d="M14 28 C14 28 4 22 4 13 C4 7.5 8.5 3 14 3 C19.5 3 24 7.5 24 13 C24 22 14 28 14 28Z"
+        stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M14 3 C14 3 10 8 10 13" stroke="currentColor" fill="none" strokeLinecap="round"/>
+      <path d="M14 3 C14 3 18 8 18 13" stroke="currentColor" fill="none" strokeLinecap="round"/>
+      <line x1="14" y1="28" x2="14" y2="33" stroke="currentColor" strokeLinecap="round"/>
+    </svg>
+  );
+};
+
+export default function RoseSection({ name, description, fullDescription, imageUrl, photos = [], reverse = false, budSize }: RoseSectionProps) {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [branchOpen, setBranchOpen] = useState(false);
   const [priceOpen, setPriceOpen] = useState(false);
@@ -61,8 +78,18 @@ export default function RoseSection({ name, description, fullDescription, imageU
 
       <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-start lg:-mt-[556px] ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
         <h3 className="uppercase mb-4 text-sm tracking-wide text-neutral-400 lg:mt-[100px]">Сорт роз</h3>
-        <div className="flex items-center gap-4 mb-4 lg:mb-6">
+        <div className="flex items-end gap-6 mb-4 lg:mb-6 flex-wrap">
           <p className="text-4xl md:text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
+          {budSize && (
+            <div className="flex flex-col gap-1 mb-1">
+              <span className="text-xs text-neutral-400 uppercase tracking-wide">Размер бутона</span>
+              <div className="flex items-end gap-2">
+                {BUD_SIZES.map(s => (
+                  <BudIcon key={s} size={s} active={s === budSize} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
         {fullDescription ? (
           <div className="mb-6 lg:mb-8 flex flex-col gap-3 lg:gap-4 max-w-md lg:mt-[100px]">
