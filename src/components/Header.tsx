@@ -1,3 +1,7 @@
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Icon from "@/components/ui/icon";
+
 interface HeaderProps {
   className?: string;
 }
@@ -20,46 +24,115 @@ const InstagramIcon = () => (
   </svg>
 );
 
+const shops = [
+  { address: "Ул. Академика Киренского 71", phone: "8-995-124-12-40", tel: "+79951241240" },
+  { address: "Ул. Семафорная 191", phone: "8-995-124-12-42", tel: "+79951241242" },
+  { address: "Ул. Алексеева 111", phone: "8-995-124-12-44", tel: "+79951241244" },
+];
+
 export default function Header({ className }: HeaderProps) {
+  const [aboutOpen, setAboutOpen] = useState(false);
+
   return (
+    <>
     <header className={`absolute top-0 left-0 right-0 z-10 p-6 ${className ?? ""}`}>
       <div className="flex justify-end items-center">
         <nav className="flex items-center gap-4 md:gap-6">
-          <a
-            href="#about"
-            className="text-black hover:text-neutral-600 transition-colors duration-300 uppercase text-sm font-medium"
+          <button
+            onClick={() => setAboutOpen(true)}
+            className="text-black hover:text-neutral-600 transition-colors duration-300 uppercase text-sm font-medium cursor-pointer"
           >
             О нас
-          </a>
-          <a
-            href="https://vk.com/flowersrf124"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-black hover:text-neutral-600 transition-colors duration-300"
-            title="ВКонтакте"
-          >
+          </button>
+          <a href="https://vk.com/flowersrf124" target="_blank" rel="noopener noreferrer" className="text-black hover:text-neutral-600 transition-colors duration-300" title="ВКонтакте">
             <VkIcon />
           </a>
-          <a
-            href="https://t.me/flowersRF24"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-black hover:text-neutral-600 transition-colors duration-300"
-            title="Telegram"
-          >
+          <a href="https://t.me/flowersRF24" target="_blank" rel="noopener noreferrer" className="text-black hover:text-neutral-600 transition-colors duration-300" title="Telegram">
             <TelegramIcon />
           </a>
-          <a
-            href="https://www.instagram.com/cvetyikrasnoyarsk?igsh=Z3B1bTF6Mmpmbjdn"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-black hover:text-neutral-600 transition-colors duration-300"
-            title="Instagram"
-          >
+          <a href="https://www.instagram.com/cvetyikrasnoyarsk?igsh=Z3B1bTF6Mmpmbjdn" target="_blank" rel="noopener noreferrer" className="text-black hover:text-neutral-600 transition-colors duration-300" title="Instagram">
             <InstagramIcon />
           </a>
         </nav>
       </div>
     </header>
+
+    <AnimatePresence>
+      {aboutOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
+          onClick={() => setAboutOpen(false)}
+        >
+          <motion.div
+            initial={{ scale: 0.95, opacity: 0, y: 12 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.95, opacity: 0, y: 12 }}
+            transition={{ type: "spring", stiffness: 180, damping: 22 }}
+            className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-start mb-5">
+              <div>
+                <h2 className="text-xl font-bold text-neutral-900">Цветы России 🌹</h2>
+                <p className="text-sm text-neutral-500 mt-0.5">Сеть оптово-розничных магазинов</p>
+              </div>
+              <button onClick={() => setAboutOpen(false)} className="text-neutral-400 hover:text-black transition-colors ml-4 mt-1">
+                <Icon name="X" size={22} />
+              </button>
+            </div>
+
+            {/* Режим работы */}
+            <div className="flex items-center gap-2 bg-neutral-50 rounded-xl px-4 py-3 mb-5">
+              <span className="text-lg">⌚️</span>
+              <p className="text-sm font-medium text-neutral-700">Режим работы: <strong>с 9:00 до 21:00</strong></p>
+            </div>
+
+            {/* Магазины */}
+            <p className="text-xs uppercase tracking-wide text-neutral-400 mb-3">Наши магазины</p>
+            <div className="flex flex-col gap-3 mb-5">
+              {shops.map((s, i) => (
+                <div key={i} className="flex items-start gap-3 border-b border-neutral-100 pb-3">
+                  <span className="text-lg mt-0.5">🏡</span>
+                  <div>
+                    <p className="font-medium text-neutral-900 text-sm">{s.address}</p>
+                    <a href={`tel:${s.tel}`} className="text-sm font-semibold hover:opacity-70 transition-opacity" style={{ color: "#3D5DAE" }}>{s.phone}</a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Доставка */}
+            <div className="bg-neutral-50 rounded-xl px-4 py-3 mb-5">
+              <p className="text-sm text-neutral-700 mb-1">🚕 <strong>Доставка</strong> курьерской службой Яндекс Такси</p>
+              <a href="https://clck.ru/3EPrXf" target="_blank" rel="noopener noreferrer" className="text-sm underline hover:opacity-70 transition-opacity" style={{ color: "#3D5DAE" }}>
+                Рассчитать стоимость доставки →
+              </a>
+            </div>
+
+            {/* Ссылки */}
+            <p className="text-xs uppercase tracking-wide text-neutral-400 mb-3">Мы в соцсетях</p>
+            <div className="flex flex-col gap-2">
+              <a href="https://vk.com/flowersrf124" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
+                🤍 ВКонтакте — Красноярск
+              </a>
+              <a href="https://www.instagram.com/p/C4r8uPLiuUq/?igsh=MXgzcWNoc29qdjFpdw==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
+                💙 Instagram
+              </a>
+              <a href="https://t.me/flowersRF24" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
+                ❤️ Telegram
+              </a>
+              <a href="https://vk.com/zvety_rossii" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
+                ❤️ ВКонтакте — Томск
+              </a>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
