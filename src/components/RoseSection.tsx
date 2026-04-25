@@ -20,7 +20,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
   return (
     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-4 md:px-6 py-10 lg:py-0" style={{ backgroundColor: "#faf7f4" }}>
       <div className={`relative flex flex-col items-center lg:items-end mb-6 lg:mb-0 ${reverse ? "lg:order-1" : "lg:order-2"}`}>
-        <div className="relative w-[240px] md:w-[280px] lg:w-[360px]">
+        <div className="relative w-[240px] md:w-[280px] lg:w-[360px] -mt-10">
           <img
             src={imageUrl}
             alt={`Розы ${name}`}
