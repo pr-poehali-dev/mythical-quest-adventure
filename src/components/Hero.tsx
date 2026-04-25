@@ -43,8 +43,8 @@ export default function Hero() {
             src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/960cc435-35ac-43a6-83e7-03fa115f81a6.jpg"
             alt="Цветы России — логотип"
             className="w-40 md:w-72 lg:w-80 rounded-2xl shadow-2xl select-none"
-            animate={burst ? { scale: [1, 1.08, 0], opacity: [1, 1, 0] } : { scale: 1, opacity: 1 }}
-            transition={{ duration: 0.45, ease: "easeIn" }}
+            animate={burst ? { scale: [1, 1.05, 0.3], opacity: [1, 1, 0] } : { scale: 1, opacity: 1 }}
+            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
           />
 
           {/* Розы разлетаются */}
@@ -60,10 +60,10 @@ export default function Hero() {
                   key={i}
                   className="absolute text-2xl pointer-events-none select-none"
                   style={{ top: "50%", left: "50%", x: "-50%", y: "-50%" }}
-                  initial={{ opacity: 1, x: "-50%", y: "-50%", scale: 0.5 }}
-                  animate={{ opacity: 0, x: `calc(-50% + ${tx}px)`, y: `calc(-50% + ${ty}px)`, scale: 1.4, rotate: angle }}
+                  initial={{ opacity: 0, x: "-50%", y: "-50%", scale: 0.2 }}
+                  animate={{ opacity: [0, 1, 1, 0], x: `calc(-50% + ${tx}px)`, y: `calc(-50% + ${ty}px)`, scale: [0.2, 1.2, 1.2, 0.8], rotate: angle }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.9, ease: "easeOut", delay: i * 0.02 }}
+                  transition={{ duration: 1.3, ease: [0.2, 0, 0.1, 1], delay: i * 0.025, times: [0, 0.2, 0.7, 1] }}
                 >
                   {rose}
                 </motion.span>
@@ -81,7 +81,7 @@ export default function Hero() {
                 className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-2xl"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7, duration: 0.4, type: "spring", stiffness: 200 }}
+                transition={{ delay: 0.9, duration: 0.6, type: "spring", stiffness: 120, damping: 18 }}
               />
             )}
           </AnimatePresence>
