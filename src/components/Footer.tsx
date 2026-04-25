@@ -46,7 +46,15 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
                 >
-                  Написать нам
+                  ВКонтакте
+                </a>
+                <a
+                  href="https://t.me/flowersRF24"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
+                >
+                  Telegram
                 </a>
                 <span className="text-white text-sm sm:text-base">Доставка по России</span>
               </div>
