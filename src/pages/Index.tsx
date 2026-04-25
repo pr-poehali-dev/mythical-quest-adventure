@@ -44,8 +44,9 @@ const roses = [
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/20a30ed6-b9f9-4e90-a614-cc148d26d971.jpg",
     reverse: true,
     photos: [],
-    budColor: "#F48FB1",
-    budColorName: "Малиново-розовый",
+    budColor: "#ffffff",
+    budColor2: "#F48FB1",
+    budColorName: "Белый / Малиново-розовый",
   },
   {
     name: "Shangri-la",

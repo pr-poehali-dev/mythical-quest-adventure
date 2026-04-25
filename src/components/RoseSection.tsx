@@ -12,6 +12,7 @@ interface RoseSectionProps {
   reverse?: boolean;
   budSize?: "small" | "medium" | "large";
   budColor?: string;
+  budColor2?: string;
   budColorName?: string;
 }
 
@@ -53,7 +54,7 @@ const BudIcon = ({ size, active }: { size: string; active: boolean }) => {
   );
 };
 
-export default function RoseSection({ name, description, fullDescription, imageUrl, photos = [], reverse = false, budSize, budColor, budColorName }: RoseSectionProps) {
+export default function RoseSection({ name, description, fullDescription, imageUrl, photos = [], reverse = false, budSize, budColor, budColor2, budColorName }: RoseSectionProps) {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [branchOpen, setBranchOpen] = useState(false);
   const [priceOpen, setPriceOpen] = useState(false);
@@ -110,10 +111,21 @@ export default function RoseSection({ name, description, fullDescription, imageU
               <div className="flex flex-col gap-1">
                 <span className="text-xs text-neutral-400 uppercase tracking-wide">Цвет</span>
                 <div className="flex items-center gap-2">
-                  <div
-                    className="rounded-full border border-neutral-200 shadow-sm flex-shrink-0"
-                    style={{ width: 28, height: 28, backgroundColor: budColor }}
-                  />
+                  {budColor2 ? (
+                    <svg width="28" height="28" viewBox="0 0 28 28" className="flex-shrink-0 drop-shadow-sm">
+                      <circle cx="14" cy="14" r="13" fill={budColor} stroke="#e5e7eb" strokeWidth="1"/>
+                      <clipPath id={`half-${name}`}>
+                        <path d="M14 1 A13 13 0 0 1 14 27 Z"/>
+                      </clipPath>
+                      <circle cx="14" cy="14" r="13" fill={budColor2} clipPath={`url(#half-${name})`}/>
+                      <line x1="14" y1="1" x2="14" y2="27" stroke="#e5e7eb" strokeWidth="1"/>
+                    </svg>
+                  ) : (
+                    <div
+                      className="rounded-full border border-neutral-200 shadow-sm flex-shrink-0"
+                      style={{ width: 28, height: 28, backgroundColor: budColor }}
+                    />
+                  )}
                   {budColorName && (
                     <span className="text-sm text-neutral-600">{budColorName}</span>
                   )}
