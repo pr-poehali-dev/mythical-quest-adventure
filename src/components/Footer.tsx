@@ -24,14 +24,6 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
                 >
-                  ВКонтакте
-                </a>
-                <a
-                  href="https://vk.com/flowersrf124"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
                   Каталог
                 </a>
                 <button
