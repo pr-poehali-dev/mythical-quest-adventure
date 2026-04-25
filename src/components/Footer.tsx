@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import BranchModal from "@/components/BranchModal";
 import Icon from "@/components/ui/icon";
 
@@ -70,13 +71,21 @@ export default function Footer() {
     <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} roseName="не указан" />
 
     {/* Модальное окно доставки */}
+    <AnimatePresence>
     {deliveryOpen && (
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         className="fixed inset-0 z-50 flex items-center justify-center px-4"
         style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
         onClick={() => setDeliveryOpen(false)}
       >
-        <div
+        <motion.div
+          initial={{ scale: 0.95, opacity: 0, y: 12 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.95, opacity: 0, y: 12 }}
+          transition={{ type: "spring", stiffness: 180, damping: 22 }}
           className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
           onClick={e => e.stopPropagation()}
         >
@@ -129,9 +138,10 @@ export default function Footer() {
               Адреса, не входящие в зону покрытия интересующего вас филиала, рассчитываются в индивидуальном порядке.
             </p>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     )}
+    </AnimatePresence>
     </>
   );
 }

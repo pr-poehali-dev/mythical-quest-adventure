@@ -98,10 +98,10 @@ export default function RoseSection({ name, description, fullDescription, imageU
             onClick={() => setPriceOpen(false)}
           >
             <motion.div
-              initial={{ scale: 0.93, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.93, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 280, damping: 24 }}
+              initial={{ scale: 0.95, opacity: 0, y: 12 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 12 }}
+              transition={{ type: "spring", stiffness: 180, damping: 22 }}
               className="bg-white rounded-2xl shadow-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto"
               onClick={e => e.stopPropagation()}
             >
@@ -163,10 +163,10 @@ export default function RoseSection({ name, description, fullDescription, imageU
             onClick={() => setGalleryOpen(false)}
           >
             <motion.div
-              initial={{ scale: 0.92, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.92, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              initial={{ scale: 0.95, opacity: 0, y: 12 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 12 }}
+              transition={{ type: "spring", stiffness: 180, damping: 22 }}
               className="bg-white rounded-2xl shadow-2xl p-6 max-w-2xl w-full"
               onClick={e => e.stopPropagation()}
             >
