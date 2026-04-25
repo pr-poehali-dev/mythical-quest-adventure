@@ -1,6 +1,6 @@
 export default function RussianFlagDivider() {
   return (
-    <div className="w-full flex items-center gap-4 px-8 md:px-16 py-2">
+    <div className="w-full flex items-center gap-4 px-8 md:px-16 py-2" style={{ backgroundColor: "#faf7f4" }}>
       <div className="flex-1 h-px bg-neutral-200" />
       <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neutral-300 flex-shrink-0">
         <path d="M16 27 C10 24 5 18 5 12 C5 7 9.5 3 16 3 C22.5 3 27 7 27 12 C27 18 22 24 16 27Z" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
