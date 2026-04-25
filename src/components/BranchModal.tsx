@@ -41,19 +41,21 @@ export default function BranchModal({ open, onClose, roseName }: BranchModalProp
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <div className="absolute inset-0 bg-black/50" onClick={handleClose} />
           <motion.div
-            className="relative bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm z-10"
-            initial={{ scale: 0.95, opacity: 0, y: 12 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.95, opacity: 0, y: 12 }}
-            transition={{ type: "spring", stiffness: 180, damping: 22 }}
+            className="relative bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-6 sm:p-8 w-full sm:max-w-sm z-10 max-h-[92vh] overflow-y-auto"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "100%", opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            style={{ WebkitOverflowScrolling: "touch" }}
           >
+            <div className="w-10 h-1 bg-neutral-200 rounded-full mx-auto mb-5 sm:hidden" />
             <button
               onClick={handleClose}
               className="absolute top-4 right-4 text-neutral-400 hover:text-neutral-700 transition-colors"
@@ -77,7 +79,7 @@ export default function BranchModal({ open, onClose, roseName }: BranchModalProp
                       <button
                         key={i}
                         onClick={() => setSelectedBranch(branch)}
-                        className="flex flex-col gap-0.5 border border-neutral-200 rounded-xl px-5 py-4 hover:border-black hover:bg-neutral-50 transition-all duration-200 group text-left"
+                        className="flex flex-col gap-0.5 border border-neutral-200 rounded-xl px-5 py-4 hover:border-black hover:bg-neutral-50 active:bg-neutral-100 transition-all duration-200 group text-left"
                       >
                         <span className="text-xs uppercase tracking-wide text-neutral-400 mb-0.5">Магазин {i + 1}</span>
                         <span className="font-semibold text-neutral-900 group-hover:text-black">{branch.name}</span>
@@ -109,9 +111,9 @@ export default function BranchModal({ open, onClose, roseName }: BranchModalProp
                       href={telegramUrl(selectedBranch)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 border border-neutral-200 rounded-xl px-5 py-4 hover:border-[#229ED9] hover:bg-blue-50 transition-all duration-200 group"
+                      className="flex items-center gap-3 border border-neutral-200 rounded-xl px-5 py-4 hover:border-[#229ED9] hover:bg-blue-50 active:bg-blue-100 transition-all duration-200 group"
                     >
-                      <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ backgroundColor: "#229ED9" }}>
+                      <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#229ED9" }}>
                         <Icon name="Send" size={18} />
                       </div>
                       <div>
@@ -123,9 +125,9 @@ export default function BranchModal({ open, onClose, roseName }: BranchModalProp
                       href={maxUrl(selectedBranch)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 border border-neutral-200 rounded-xl px-5 py-4 hover:border-[#0077FF] hover:bg-blue-50 transition-all duration-200 group"
+                      className="flex items-center gap-3 border border-neutral-200 rounded-xl px-5 py-4 hover:border-[#0077FF] hover:bg-blue-50 active:bg-blue-100 transition-all duration-200 group"
                     >
-                      <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm" style={{ backgroundColor: "#0077FF" }}>
+                      <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0" style={{ backgroundColor: "#0077FF" }}>
                         M
                       </div>
                       <div>

@@ -93,18 +93,20 @@ export default function RoseSection({ name, description, fullDescription, imageU
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:px-4"
             style={{ backgroundColor: "rgba(0,0,0,0.75)" }}
             onClick={() => setPriceOpen(false)}
           >
             <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 12 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 12 }}
-              transition={{ type: "spring", stiffness: 180, damping: 22 }}
-              className="bg-white rounded-2xl shadow-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto"
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "100%", opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-5 sm:p-6 sm:max-w-lg w-full max-h-[92vh] overflow-y-auto"
               onClick={e => e.stopPropagation()}
+              style={{ WebkitOverflowScrolling: "touch" }}
             >
+              <div className="w-10 h-1 bg-neutral-200 rounded-full mx-auto mb-4 sm:hidden" />
               <div className="flex justify-between items-center mb-5">
                 <div>
                   <h2 className="text-xl font-bold text-neutral-900 uppercase tracking-wide">Прайс — {name}</h2>
@@ -158,18 +160,20 @@ export default function RoseSection({ name, description, fullDescription, imageU
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:px-4"
             style={{ backgroundColor: "rgba(0,0,0,0.85)" }}
             onClick={() => setGalleryOpen(false)}
           >
             <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 12 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 12 }}
-              transition={{ type: "spring", stiffness: 180, damping: 22 }}
-              className="bg-white rounded-2xl shadow-2xl p-6 max-w-2xl w-full"
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "100%", opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-5 sm:p-6 sm:max-w-2xl w-full max-h-[92vh] overflow-y-auto"
               onClick={e => e.stopPropagation()}
+              style={{ WebkitOverflowScrolling: "touch" }}
             >
+              <div className="w-10 h-1 bg-neutral-200 rounded-full mx-auto mb-4 sm:hidden" />
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-bold italic text-neutral-900">{name} — живые фото</h2>
                 <button onClick={() => setGalleryOpen(false)} className="text-neutral-400 hover:text-black transition-colors">
@@ -184,7 +188,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
                 </div>
               ) : (
                 <>
-                  <div className="relative mb-3 rounded-xl overflow-hidden bg-neutral-50" style={{ height: 360 }}>
+                  <div className="relative mb-3 rounded-xl overflow-hidden bg-neutral-50" style={{ height: "min(360px, 55vw)" }}>
                     <img
                       src={photos[activeIdx]}
                       alt={`${name} фото ${activeIdx + 1}`}
