@@ -38,7 +38,7 @@ export default function Footer() {
                   onClick={() => setDeliveryOpen(true)}
                   className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base text-left cursor-pointer"
                 >
-                  Условия доставки
+                  Доставка
                 </button>
               </div>
               <div className="flex flex-col gap-1 sm:gap-2">
