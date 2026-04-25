@@ -102,9 +102,9 @@ export default function RoseSection({ name, description, fullDescription, imageU
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "100%", opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-5 sm:p-6 sm:max-w-lg w-full max-h-[92vh] overflow-y-auto"
+              className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-5 sm:p-6 sm:max-w-lg w-full overflow-y-auto"
               onClick={e => e.stopPropagation()}
-              style={{ WebkitOverflowScrolling: "touch" }}
+              style={{ WebkitOverflowScrolling: "touch", maxHeight: "80svh", paddingBottom: "max(20px, env(safe-area-inset-bottom))" }}
             >
               <div className="w-10 h-1 bg-neutral-200 rounded-full mx-auto mb-4 sm:hidden" />
               <div className="flex justify-between items-center mb-5">
@@ -169,9 +169,9 @@ export default function RoseSection({ name, description, fullDescription, imageU
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "100%", opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-5 sm:p-6 sm:max-w-2xl w-full max-h-[92vh] overflow-y-auto"
+              className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-5 sm:p-6 sm:max-w-2xl w-full overflow-y-auto"
               onClick={e => e.stopPropagation()}
-              style={{ WebkitOverflowScrolling: "touch" }}
+              style={{ WebkitOverflowScrolling: "touch", maxHeight: "80svh", paddingBottom: "max(20px, env(safe-area-inset-bottom))" }}
             >
               <div className="w-10 h-1 bg-neutral-200 rounded-full mx-auto mb-4 sm:hidden" />
               <div className="flex justify-between items-center mb-4">

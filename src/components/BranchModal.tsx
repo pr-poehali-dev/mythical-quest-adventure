@@ -48,12 +48,12 @@ export default function BranchModal({ open, onClose, roseName }: BranchModalProp
         >
           <div className="absolute inset-0 bg-black/50" onClick={handleClose} />
           <motion.div
-            className="relative bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-6 sm:p-8 w-full sm:max-w-sm z-10 max-h-[92vh] overflow-y-auto"
+            className="relative bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-6 sm:p-8 w-full sm:max-w-sm z-10 overflow-y-auto"
             initial={{ y: "100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "100%", opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            style={{ WebkitOverflowScrolling: "touch" }}
+            style={{ WebkitOverflowScrolling: "touch", maxHeight: "80svh", paddingBottom: "max(24px, env(safe-area-inset-bottom))" }}
           >
             <div className="w-10 h-1 bg-neutral-200 rounded-full mx-auto mb-5 sm:hidden" />
             <button
