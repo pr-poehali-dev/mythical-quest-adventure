@@ -125,9 +125,7 @@ export default function Header({ className }: HeaderProps) {
               <a href="https://t.me/flowersRF24" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
                 ❤️ Telegram
               </a>
-              <a href="https://vk.com/zvety_rossii" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
-                ❤️ ВКонтакте — Томск
-              </a>
+
             </div>
           </motion.div>
         </motion.div>
