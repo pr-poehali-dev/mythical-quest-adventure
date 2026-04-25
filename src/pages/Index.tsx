@@ -115,8 +115,19 @@ const Index = () => {
     <main className="min-h-screen">
       <Header />
       <Hero />
+      <div id="catalog" className="flex flex-wrap justify-center gap-2 px-4 py-6 bg-white">
+        {roses.map((rose) => (
+          <a
+            key={rose.name}
+            href={`#rose-${rose.name.toLowerCase().replace(/\s+/g, "-")}`}
+            className="px-4 py-2 rounded-full border border-rose-300 text-rose-700 text-sm font-medium hover:bg-rose-50 transition-colors whitespace-nowrap"
+          >
+            {rose.name}
+          </a>
+        ))}
+      </div>
       {roses.map((rose, i) => (
-        <div key={rose.name} id={i === 0 ? "catalog" : undefined}>
+        <div key={rose.name} id={`rose-${rose.name.toLowerCase().replace(/\s+/g, "-")}`}>
           <RussianFlagDivider />
           <RoseSection {...rose} />
         </div>
