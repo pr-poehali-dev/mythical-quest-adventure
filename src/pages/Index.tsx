@@ -97,7 +97,7 @@ const roses = [
   {
     name: "Avalanche",
     description: "Снежно-белые розы с кремовым оттенком. Чистота и элегантность — идеальный выбор для свадьбы и торжества.",
-    imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/1485beaa-a32b-4338-8227-0b7b26b5accf.jpg",
+    imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/fbce43c0-906d-4c0c-905c-eafe6ba82778.png",
     reverse: true,
     photos: ["https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/47530b0d-5080-4f07-abed-b87e48959205.jpg"],
   },
