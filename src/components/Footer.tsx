@@ -20,7 +20,11 @@ export default function Footer() {
                 <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Магазин</h3>
                 <a
                   href="#catalog"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
+                  onClick={e => {
+                    e.preventDefault();
+                    document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base cursor-pointer"
                 >
                   Каталог
                 </a>
