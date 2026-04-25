@@ -90,12 +90,12 @@ export default function RoseSection({ name, description, fullDescription, imageU
       </div>
 
       <div className={`flex-1 text-left lg:h-[800px] flex flex-col justify-start lg:-mt-[556px] ${reverse ? "lg:ml-12 lg:order-2" : "lg:mr-12 lg:order-1"}`}>
-        <div className="flex items-end gap-6 mb-4 lg:mb-6 flex-wrap lg:mt-[100px]">
+        <div className="flex items-end gap-10 mb-4 lg:mb-6 flex-wrap lg:mt-[100px]">
           <div className="flex flex-col gap-1">
             <h3 className="uppercase text-sm tracking-wide text-neutral-400">Сорт роз</h3>
             <p className="text-4xl md:text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
           </div>
-          <div className="flex items-start gap-5 flex-wrap">
+          <div className="flex items-start gap-8 flex-wrap">
             {budSize && (
               <div className="flex flex-col gap-1">
                 <span className="text-xs text-neutral-400 uppercase tracking-wide">Размер бутона</span>
