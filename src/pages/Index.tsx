@@ -19,6 +19,8 @@ const roses = [
     reverse: false,
     photos: [],
     budSize: "medium",
+    budColor: "#F5C4A1",
+    budColorName: "Персиково-кремовый",
   },
   {
     name: "Novi",
@@ -26,6 +28,8 @@ const roses = [
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/7a862757-1f7e-4e63-80f5-d21c621e1cca.jpg",
     reverse: false,
     photos: [],
+    budColor: "#F47B30",
+    budColorName: "Огненно-оранжевый",
   },
   {
     name: "Jumilia",
@@ -39,6 +43,8 @@ const roses = [
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/20a30ed6-b9f9-4e90-a614-cc148d26d971.jpg",
     reverse: true,
     photos: [],
+    budColor: "#F48FB1",
+    budColorName: "Малиново-розовый",
   },
   {
     name: "Shangri-la",
@@ -46,6 +52,8 @@ const roses = [
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/97476612-5440-4e5a-89c9-ee494b456373.jpg",
     reverse: false,
     photos: [],
+    budColor: "#C2185B",
+    budColorName: "Малиновый",
   },
   {
     name: "Revival",
@@ -54,6 +62,8 @@ const roses = [
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/750c6e51-ed98-4e2b-9297-0387f9b8e56f.png",
     reverse: true,
     photos: [],
+    budColor: "#F8BBD9",
+    budColorName: "Светло-розовый",
   },
   {
     name: "Saida",
@@ -61,6 +71,8 @@ const roses = [
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/423b6dda-a6ce-4d38-a643-c4802bae76f2.jpg",
     reverse: false,
     photos: [],
+    budColor: "#FFAB91",
+    budColorName: "Персиковый",
   },
   {
     name: "Red Naomi",
@@ -74,6 +86,8 @@ const roses = [
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/a3291a04-af10-4148-92d0-8f0582169c5c.png",
     reverse: true,
     photos: [],
+    budColor: "#8B1A1A",
+    budColorName: "Тёмно-красный",
   },
   {
     name: "WOW",
@@ -87,6 +101,8 @@ const roses = [
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/03cbc508-12e2-4cc4-9cc6-64aaa17d645f.jpg",
     reverse: false,
     photos: [],
+    budColor: "#FF7043",
+    budColorName: "Лососево-оранжевый",
   },
   {
     name: "Avalanche",
@@ -94,6 +110,8 @@ const roses = [
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/fbce43c0-906d-4c0c-905c-eafe6ba82778.png",
     reverse: true,
     photos: ["https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/47530b0d-5080-4f07-abed-b87e48959205.jpg"],
+    budColor: "#F5F0E8",
+    budColorName: "Кремово-белый",
   },
   {
     name: "Heldll",
@@ -101,6 +119,8 @@ const roses = [
     imageUrl: "https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/f3e71ca6-fd81-441f-bd10-415aff72eecb.jpg",
     reverse: false,
     photos: [],
+    budColor: "#F48FB1",
+    budColorName: "Нежно-розовый",
   },
 ];
 

@@ -11,6 +11,8 @@ interface RoseSectionProps {
   photos?: string[];
   reverse?: boolean;
   budSize?: "small" | "medium" | "large";
+  budColor?: string;
+  budColorName?: string;
 }
 
 const PRICE_DATA = [
@@ -51,7 +53,7 @@ const BudIcon = ({ size, active }: { size: string; active: boolean }) => {
   );
 };
 
-export default function RoseSection({ name, description, fullDescription, imageUrl, photos = [], reverse = false, budSize }: RoseSectionProps) {
+export default function RoseSection({ name, description, fullDescription, imageUrl, photos = [], reverse = false, budSize, budColor, budColorName }: RoseSectionProps) {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [branchOpen, setBranchOpen] = useState(false);
   const [priceOpen, setPriceOpen] = useState(false);
@@ -93,16 +95,32 @@ export default function RoseSection({ name, description, fullDescription, imageU
             <h3 className="uppercase text-sm tracking-wide text-neutral-400">Сорт роз</h3>
             <p className="text-4xl md:text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
           </div>
-          {budSize && (
-            <div className="flex flex-col gap-1 mb-1">
-              <span className="text-xs text-neutral-400 uppercase tracking-wide">Размер бутона</span>
-              <div className="flex items-end gap-2">
-                {BUD_SIZES.map(s => (
-                  <BudIcon key={s} size={s} active={s === budSize} />
-                ))}
+          <div className="flex items-end gap-5 flex-wrap">
+            {budSize && (
+              <div className="flex flex-col gap-1 mb-1">
+                <span className="text-xs text-neutral-400 uppercase tracking-wide">Размер бутона</span>
+                <div className="flex items-end gap-2">
+                  {BUD_SIZES.map(s => (
+                    <BudIcon key={s} size={s} active={s === budSize} />
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
+            {budColor && (
+              <div className="flex flex-col gap-1 mb-1">
+                <span className="text-xs text-neutral-400 uppercase tracking-wide">Цвет</span>
+                <div className="flex items-center gap-2">
+                  <div
+                    className="rounded-full border border-neutral-200 shadow-sm flex-shrink-0"
+                    style={{ width: 28, height: 28, backgroundColor: budColor }}
+                  />
+                  {budColorName && (
+                    <span className="text-sm text-neutral-600">{budColorName}</span>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
         {fullDescription ? (
           <div className="mb-6 lg:mb-8 flex flex-col gap-3 lg:gap-4 max-w-md lg:mt-[100px]">
