@@ -3,9 +3,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import BranchModal from "@/components/BranchModal";
 import Icon from "@/components/ui/icon";
 
+const BRANCHES_2GIS = [
+  { name: "Академика Киренского 71", url: "https://2gis.ru/krasnoyarsk/firm/70000001074420265?m=92.799393%2C56.013703%2F16" },
+  { name: "Алексеева 111", url: "https://2gis.ru/krasnoyarsk/firm/70000001070249309?m=92.897218%2C56.042436%2F16" },
+  { name: "Семафорная 191", url: "https://2gis.ru/krasnoyarsk/firm/70000001093680677?m=92.863489%2C55.982783%2F16" },
+];
+
 export default function Footer() {
   const [branchOpen, setBranchOpen] = useState(false);
   const [deliveryOpen, setDeliveryOpen] = useState(false);
+  const [gisOpen, setGisOpen] = useState(false);
 
   return (
     <>
@@ -41,6 +48,12 @@ export default function Footer() {
                 >
                   Доставка
                 </button>
+                <button
+                  onClick={() => setGisOpen(true)}
+                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base text-left cursor-pointer"
+                >
+                  2ГИС
+                </button>
               </div>
               <div className="flex flex-col gap-1 sm:gap-2">
                 <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Контакты</h3>
@@ -69,6 +82,52 @@ export default function Footer() {
     </div>
 
     <BranchModal open={branchOpen} onClose={() => setBranchOpen(false)} roseName="не указан" />
+
+    {/* Модальное окно 2ГИС */}
+    <AnimatePresence>
+      {gisOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:px-4 pb-16 sm:pb-0"
+          style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
+          onClick={() => setGisOpen(false)}
+        >
+          <motion.div
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "100%", opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-6 sm:max-w-sm w-full"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="w-10 h-1 bg-neutral-200 rounded-full mx-auto mb-4 sm:hidden" />
+            <div className="flex justify-between items-center mb-5">
+              <h2 className="text-lg font-bold text-neutral-900 uppercase tracking-wide">Выберите филиал</h2>
+              <button onClick={() => setGisOpen(false)} className="text-neutral-400 hover:text-black transition-colors">
+                <Icon name="X" size={22} />
+              </button>
+            </div>
+            <div className="flex flex-col gap-3">
+              {BRANCHES_2GIS.map(b => (
+                <a
+                  key={b.name}
+                  href={b.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setGisOpen(false)}
+                  className="flex items-center justify-between px-4 py-3 border border-neutral-200 rounded-xl hover:bg-neutral-50 transition-colors group"
+                >
+                  <span className="text-neutral-800 text-sm font-medium">{b.name}</span>
+                  <Icon name="MapPin" size={18} className="text-neutral-400 group-hover:text-black transition-colors" />
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
 
     {/* Модальное окно доставки */}
     <AnimatePresence>
