@@ -95,9 +95,9 @@ export default function RoseSection({ name, description, fullDescription, imageU
             <h3 className="uppercase text-sm tracking-wide text-neutral-400">Сорт роз</h3>
             <p className="text-4xl md:text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
           </div>
-          <div className="flex items-end gap-5 flex-wrap">
+          <div className="flex items-start gap-5 flex-wrap">
             {budSize && (
-              <div className="flex flex-col gap-1 mb-1">
+              <div className="flex flex-col gap-1">
                 <span className="text-xs text-neutral-400 uppercase tracking-wide">Размер бутона</span>
                 <div className="flex items-end gap-2">
                   {BUD_SIZES.map(s => (
@@ -107,7 +107,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
               </div>
             )}
             {budColor && (
-              <div className="flex flex-col gap-1 mb-1">
+              <div className="flex flex-col gap-1">
                 <span className="text-xs text-neutral-400 uppercase tracking-wide">Цвет</span>
                 <div className="flex items-center gap-2">
                   <div
