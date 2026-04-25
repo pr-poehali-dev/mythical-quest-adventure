@@ -135,7 +135,7 @@ const Index = () => {
     <main className="min-h-screen">
       <Header />
       <Hero />
-      <div id="catalog" className="flex flex-wrap justify-center gap-2 px-4 py-6 bg-white">
+      <div id="catalog" className="flex flex-wrap justify-center gap-2 px-4 py-6" style={{ backgroundColor: "#faf7f4" }}>
         {roses.map((rose) => (
           <a
             key={rose.name}
