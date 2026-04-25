@@ -111,3 +111,35 @@ html {
       sans-serif;
   }
 }
+
+.russia-text {
+  color: white;
+  background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #ffffff 30%,
+    #0039a6 50%,
+    #d52b1e 70%,
+    #ffffff 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.russia-text:hover {
+  animation: russia-shimmer 2s ease infinite;
+}
+
+@keyframes russia-shimmer {
+  0% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
