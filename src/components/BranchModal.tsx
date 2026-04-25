@@ -83,7 +83,7 @@ export default function BranchModal({ open, onClose, roseName }: BranchModalProp
                       >
                         <span className="text-xs uppercase tracking-wide text-neutral-400 mb-0.5">Магазин {i + 1}</span>
                         <span className="font-semibold text-neutral-900 group-hover:text-black">{branch.name}</span>
-                        <span className="text-sm font-medium" style={{ color: "#3D5DAE" }}>{branch.phone}</span>
+                        <a href={`tel:${branch.tel}`} onClick={e => e.stopPropagation()} className="text-sm font-medium hover:opacity-70 transition-opacity" style={{ color: "#3D5DAE" }}>{branch.phone}</a>
                       </button>
                     ))}
                   </div>
@@ -105,7 +105,7 @@ export default function BranchModal({ open, onClose, roseName }: BranchModalProp
                   </button>
                   <h2 className="text-xl font-bold text-neutral-900 mb-1">Как удобно связаться?</h2>
                   <p className="text-sm text-neutral-400 mb-1">{selectedBranch.name}</p>
-                  <p className="text-sm font-medium mb-6" style={{ color: "#3D5DAE" }}>{selectedBranch.phone}</p>
+                  <a href={`tel:${selectedBranch.tel}`} className="text-sm font-medium mb-6 block hover:opacity-70 transition-opacity" style={{ color: "#3D5DAE" }}>{selectedBranch.phone}</a>
                   <div className="flex flex-col gap-3">
                     <a
                       href={telegramUrl(selectedBranch)}
