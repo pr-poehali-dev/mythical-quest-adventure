@@ -66,15 +66,7 @@ export default function Footer() {
               <h1 className="text-[14vw] sm:text-[12vw] lg:text-[10vw] leading-[0.8] mt-4 sm:mt-6 lg:mt-10 text-white font-bold tracking-tight">
                 ЦВЕТЫ РОССИИ
               </h1>
-              <div className="flex flex-col items-start sm:items-end gap-2">
-                <button
-                  onClick={() => setDeliveryOpen(true)}
-                  className="border border-white text-white px-4 py-2 text-sm uppercase tracking-wide hover:bg-white hover:text-black transition-all duration-300 cursor-pointer"
-                >
-                  Условия доставки
-                </button>
-                <p className="text-white text-sm sm:text-base">{new Date().getFullYear()} Цветы России</p>
-              </div>
+              <p className="text-white text-sm sm:text-base">{new Date().getFullYear()} Цветы России</p>
             </div>
           </div>
         </div>
