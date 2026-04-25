@@ -94,7 +94,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
         <div className="flex items-end gap-10 mb-4 lg:mb-6 flex-wrap lg:mt-[100px]">
           <div className="flex flex-col gap-1">
             <h3 className="uppercase text-sm tracking-wide text-neutral-400">Сорт роз</h3>
-            <p className="text-4xl md:text-5xl lg:text-7xl font-bold text-neutral-900 italic">{name}</p>
+            <p className="text-4xl md:text-5xl lg:text-7xl font-bold text-neutral-900 italic font-serif">{name}</p>
           </div>
           <div className="flex items-start gap-8 flex-wrap">
             {budSize && (
