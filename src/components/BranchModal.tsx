@@ -53,7 +53,7 @@ export default function BranchModal({ open, onClose, roseName }: BranchModalProp
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "100%", opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            style={{ WebkitOverflowScrolling: "touch", maxHeight: "80svh", paddingBottom: "max(24px, env(safe-area-inset-bottom))" }}
+            style={{ WebkitOverflowScrolling: "touch", maxHeight: "65svh", paddingBottom: "24px" }}
           >
             <div className="w-10 h-1 bg-neutral-200 rounded-full mx-auto mb-5 sm:hidden" />
             <button
