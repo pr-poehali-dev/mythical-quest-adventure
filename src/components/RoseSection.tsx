@@ -27,15 +27,26 @@ const STEMS = ["40", "50", "60", "70"];
 const BUD_SIZES = ["small", "medium", "large"] as const;
 
 const BudIcon = ({ size, active }: { size: string; active: boolean }) => {
-  const s = size === "small" ? 22 : size === "medium" ? 28 : 34;
+  const s = size === "small" ? 22 : size === "medium" ? 28 : 36;
   return (
-    <svg width={s} height={s + 6} viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg"
-      style={{ strokeWidth: active ? 2.2 : 1.2, opacity: active ? 1 : 0.35 }}>
-      <path d="M14 28 C14 28 4 22 4 13 C4 7.5 8.5 3 14 3 C19.5 3 24 7.5 24 13 C24 22 14 28 14 28Z"
-        stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M14 3 C14 3 10 8 10 13" stroke="currentColor" fill="none" strokeLinecap="round"/>
-      <path d="M14 3 C14 3 18 8 18 13" stroke="currentColor" fill="none" strokeLinecap="round"/>
-      <line x1="14" y1="28" x2="14" y2="33" stroke="currentColor" strokeLinecap="round"/>
+    <svg width={s} height={s + 8} viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style={{ opacity: active ? 1 : 0.32 }}>
+      {/* стебель */}
+      <line x1="16" y1="34" x2="16" y2="39" stroke="currentColor" strokeWidth={active ? 1.6 : 1} strokeLinecap="round"/>
+      {/* чашелистики */}
+      <path d="M16 34 C13 31 10 30 9 27 C12 27 15 29 16 34Z" stroke="currentColor" strokeWidth={active ? 1.2 : 0.8} fill="none" strokeLinejoin="round"/>
+      <path d="M16 34 C19 31 22 30 23 27 C20 27 17 29 16 34Z" stroke="currentColor" strokeWidth={active ? 1.2 : 0.8} fill="none" strokeLinejoin="round"/>
+      {/* внешние лепестки */}
+      <path d="M16 28 C10 26 7 21 8 15 C10 18 11 22 16 24 C21 22 22 18 24 15 C25 21 22 26 16 28Z"
+        stroke="currentColor" strokeWidth={active ? 1.6 : 1} fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* средние лепестки */}
+      <path d="M16 24 C11 22 9 17 10 12 C12 15 13 19 16 20 C19 19 20 15 22 12 C23 17 21 22 16 24Z"
+        stroke="currentColor" strokeWidth={active ? 1.4 : 0.9} fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* центральный бутон */}
+      <path d="M16 20 C13 18 12 14 13 10 C14 12 15 15 16 16 C17 15 18 12 19 10 C20 14 19 18 16 20Z"
+        stroke="currentColor" strokeWidth={active ? 1.3 : 0.8} fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* верхушка */}
+      <path d="M13 10 C13 7 14.5 5 16 4 C17.5 5 19 7 19 10" stroke="currentColor" strokeWidth={active ? 1.2 : 0.8} fill="none" strokeLinecap="round"/>
     </svg>
   );
 };
