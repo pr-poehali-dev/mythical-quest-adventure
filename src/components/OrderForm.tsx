@@ -2,13 +2,32 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const stores = [
-  { name: "Алексеева 111" },
-  { name: "Академика Киренского 71" },
-  { name: "Семафорная 191" },
+  {
+    name: "Алексеева 111",
+    ll: "92.800407,56.013663",
+    pt: "92.800407,56.013663,pmrdm2",
+  },
+  {
+    name: "Академика Киренского 71",
+    ll: "92.897425,56.042426",
+    pt: "92.897425,56.042426,pmrdm1",
+  },
+  {
+    name: "Семафорная 191",
+    ll: "92.863657,55.982829",
+    pt: "92.863657,55.982829,pmrdm3",
+  },
 ];
+
+const ALL_POINTS = "92.897425%2C56.042426%2Cpmrdm1~92.800407%2C56.013663%2Cpmrdm2~92.863657%2C55.982829%2Cpmrdm3";
 
 export default function OrderForm() {
   const [deliveryOpen, setDeliveryOpen] = useState(false);
+  const [activeStore, setActiveStore] = useState<number | null>(null);
+
+  const mapSrc = activeStore !== null
+    ? `https://yandex.ru/map-widget/v1/?ll=${encodeURIComponent(stores[activeStore].ll)}&z=15&pt=${encodeURIComponent(stores[activeStore].pt)}`
+    : `https://yandex.ru/map-widget/v1/?ll=92.8545%2C56.0131&z=12&pt=${ALL_POINTS}`;
 
   return (
     <section id="order" className="px-6 py-24" style={{ backgroundColor: "#f5f0eb" }}>
@@ -19,18 +38,26 @@ export default function OrderForm() {
         </h2>
         <div className="flex flex-col gap-4 mb-8">
           {stores.map((store, i) => (
-            <div key={i} className="flex items-start gap-4 border-b border-neutral-200 pb-4">
-              <span className="text-2xl font-bold text-neutral-200 leading-none">{String(i + 1).padStart(2, "0")}</span>
-              <div>
-                <p className="text-neutral-900 font-medium">{store.name}</p>
+            <div
+              key={i}
+              onClick={() => setActiveStore(activeStore === i ? null : i)}
+              className={`flex items-start gap-4 border-b pb-4 cursor-pointer transition-all duration-200 group ${activeStore === i ? "border-black" : "border-neutral-200 hover:border-neutral-400"}`}
+            >
+              <span className={`text-2xl font-bold leading-none transition-colors duration-200 ${activeStore === i ? "text-black" : "text-neutral-200 group-hover:text-neutral-400"}`}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div className="flex-1">
+                <p className={`font-medium transition-colors duration-200 ${activeStore === i ? "text-black" : "text-neutral-900"}`}>{store.name}</p>
                 <p className="text-neutral-500 text-sm">г. Красноярск</p>
               </div>
+              {activeStore === i && <Icon name="MapPin" size={18} className="text-black mt-0.5" />}
             </div>
           ))}
         </div>
-        <div className="w-full h-64 md:h-96 overflow-hidden rounded mb-6">
+        <div className="w-full h-64 md:h-96 overflow-hidden rounded mb-6 transition-all duration-300">
           <iframe
-            src="https://yandex.ru/map-widget/v1/?ll=92.8545%2C56.0131&z=12&pt=92.897425%2C56.042426%2Cpmrdm1~92.800407%2C56.013663%2Cpmrdm2~92.863657%2C55.982829%2Cpmrdm3"
+            key={mapSrc}
+            src={mapSrc}
             width="100%"
             height="100%"
             frameBorder="0"
