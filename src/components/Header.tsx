@@ -117,7 +117,7 @@ export default function Header({ className }: HeaderProps) {
             <p className="text-xs uppercase tracking-wide text-neutral-400 mb-3">Мы в соцсетях</p>
             <div className="flex flex-col gap-2">
               <a href="https://vk.com/flowersrf124" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
-                🤍 ВКонтакте — Красноярск
+                🤍 ВКонтакте
               </a>
               <a href="https://www.instagram.com/p/C4r8uPLiuUq/?igsh=MXgzcWNoc29qdjFpdw==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-neutral-700 hover:text-neutral-900 transition-colors">
                 💙 Instagram
