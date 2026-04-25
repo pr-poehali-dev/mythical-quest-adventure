@@ -141,7 +141,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
               </div>
 
               <button
-                onClick={() => setBranchOpen(true)}
+                onClick={() => { setPriceOpen(false); setTimeout(() => setBranchOpen(true), 200); }}
                 className="mt-5 w-full bg-black text-white py-3 text-sm uppercase tracking-wide hover:bg-neutral-800 transition-colors rounded cursor-pointer"
               >
                 Заказать
