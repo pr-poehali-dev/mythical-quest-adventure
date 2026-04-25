@@ -21,6 +21,14 @@ export default function Header({ className }: HeaderProps) {
           >
             ВКонтакте
           </a>
+          <a
+            href="https://t.me/flowersRF24"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-black hover:text-neutral-600 transition-colors duration-300 uppercase text-sm font-medium"
+          >
+            Telegram
+          </a>
         </nav>
       </div>
     </header>
