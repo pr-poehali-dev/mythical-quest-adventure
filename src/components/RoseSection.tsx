@@ -37,7 +37,7 @@ export default function RoseSection({ name, description, fullDescription, imageU
         </div>
         <button
           onClick={() => { setActiveIdx(0); setGalleryOpen(true); }}
-          className="mt-4 bg-white text-black border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-black hover:text-white cursor-pointer uppercase tracking-wide"
+          className="-mt-32 bg-white text-black border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-black hover:text-white cursor-pointer uppercase tracking-wide relative z-10"
         >
           Живые фото
         </button>
