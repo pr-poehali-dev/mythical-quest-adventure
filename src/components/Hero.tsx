@@ -2,25 +2,16 @@ import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion"
 import { useRef, useState } from "react";
 import BranchModal from "@/components/BranchModal";
 
-const ROSES = ["🌹", "🌸", "🌺", "🌷", "🌹", "🌸", "🌺", "🌷", "🌹", "🌸", "🌺", "🌷", "🌹", "🌸", "🌺", "🌷", "🌹", "🌸", "🌺", "🌷"];
-
 export default function Hero() {
   const container = useRef<HTMLDivElement>(null);
   const [showContacts, setShowContacts] = useState(false);
   const [branchOpen, setBranchOpen] = useState(false);
-  const [burst, setBurst] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0vh", "50vh"]);
-
-  const handleLogoClick = () => {
-    if (burst) return;
-    setBurst(true);
-    setTimeout(() => setBurst(false), 1500);
-  };
 
   return (
     <div
@@ -37,44 +28,11 @@ export default function Hero() {
       </motion.div>
 
       <div className="relative z-10 flex flex-col items-center text-center mt-16 md:mt-32 px-4">
-
-        {/* Логотип с анимацией */}
-        <div className="relative cursor-pointer mb-6 md:mb-8" onClick={handleLogoClick}>
-          <motion.img
-            src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/960cc435-35ac-43a6-83e7-03fa115f81a6.jpg"
-            alt="Цветы России — логотип"
-            className="w-40 md:w-72 lg:w-80 rounded-2xl shadow-2xl select-none"
-            animate={burst ? { scale: [1, 1.05, 0, 0, 1], opacity: [1, 1, 0, 0, 1] } : { scale: 1, opacity: 1 }}
-            transition={{ duration: 1.5, ease: "easeInOut", times: [0, 0.2, 0.45, 0.7, 1] }}
-          />
-
-          {/* Розы разлетаются */}
-          <AnimatePresence>
-            {burst && ROSES.map((rose, i) => {
-              const angle = (i / ROSES.length) * 360;
-              const dist = 120 + Math.random() * 100;
-              const rad = (angle * Math.PI) / 180;
-              const tx = Math.cos(rad) * dist;
-              const ty = Math.sin(rad) * dist;
-              return (
-                <motion.span
-                  key={i}
-                  className="absolute text-2xl pointer-events-none select-none"
-                  style={{ top: "50%", left: "50%", x: "-50%", y: "-50%" }}
-                  initial={{ opacity: 0, x: "-50%", y: "-50%", scale: 0.2 }}
-                  animate={{ opacity: [0, 1, 1, 0], x: `calc(-50% + ${tx}px)`, y: `calc(-50% + ${ty}px)`, scale: [0.2, 1.2, 1.2, 0.8], rotate: angle }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 1.3, ease: [0.2, 0, 0.1, 1], delay: i * 0.025, times: [0, 0.2, 0.7, 1] }}
-                >
-                  {rose}
-                </motion.span>
-              );
-            })}
-          </AnimatePresence>
-
-
-        </div>
-
+        <img
+          src="https://cdn.poehali.dev/projects/87f72a13-069f-4ee6-a57f-5a577d3f14ab/bucket/960cc435-35ac-43a6-83e7-03fa115f81a6.jpg"
+          alt="Цветы России — логотип"
+          className="w-40 md:w-72 lg:w-80 mb-6 md:mb-8 rounded-2xl shadow-2xl"
+        />
         <p className="text-base md:text-xl max-w-xl mx-auto mb-6 md:mb-8 font-medium drop-shadow" style={{ color: "#1e3a8a" }}>
           Свежие розы с любовью — для особых моментов и каждого дня
         </p>
