@@ -13,6 +13,8 @@ export default function Footer() {
   const [branchOpen, setBranchOpen] = useState(false);
   const [deliveryOpen, setDeliveryOpen] = useState(false);
   const [gisOpen, setGisOpen] = useState(false);
+  const [paymentOpen, setPaymentOpen] = useState(false);
+  const [returnOpen, setReturnOpen] = useState(false);
 
   return (
     <>
@@ -43,10 +45,22 @@ export default function Footer() {
                   Заказать
                 </button>
                 <button
+                  onClick={() => setPaymentOpen(true)}
+                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base text-left cursor-pointer"
+                >
+                  Оплата
+                </button>
+                <button
                   onClick={() => setDeliveryOpen(true)}
                   className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base text-left cursor-pointer"
                 >
                   Доставка
+                </button>
+                <button
+                  onClick={() => setReturnOpen(true)}
+                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base text-left cursor-pointer"
+                >
+                  Возврат
                 </button>
                 <button
                   onClick={() => setGisOpen(true)}
@@ -151,53 +165,109 @@ export default function Footer() {
           onClick={e => e.stopPropagation()}
         >
           <div className="flex justify-between items-center mb-5">
-            <h2 className="text-xl font-bold text-neutral-900 uppercase tracking-wide">Условия доставки</h2>
+            <h2 className="text-xl font-bold text-neutral-900 uppercase tracking-wide">Доставка</h2>
             <button onClick={() => setDeliveryOpen(false)} className="text-neutral-400 hover:text-black transition-colors">
               <Icon name="X" size={22} />
             </button>
           </div>
-
-          {/* Карта */}
-          <div className="w-full h-56 md:h-72 rounded-xl overflow-hidden mb-5">
-            <iframe
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad6b5c57c8ce93861f69932b259269131ff9c02a351448a21a239a6a9ce015fc4&amp;source=constructorLink"
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              allowFullScreen
-              style={{ border: 0 }}
-            />
-          </div>
-
-          {/* Филиалы */}
           <div className="space-y-4 text-sm text-neutral-700">
-            <div className="border-b border-neutral-100 pb-4">
-              <p className="font-semibold text-neutral-900 mb-1">Академика Киренского 71</p>
-              <p className="text-neutral-500 text-xs mb-2">Зоны: зелёная, серая, чёрная</p>
-              <div className="flex gap-4">
-                <span>До подъезда — <strong>400 ₽</strong></span>
-                <span>До квартиры — <strong>500 ₽</strong></span>
+            <p>Доставка по городу Красноярск. Мы работаем с курьерской службой <strong>Яндекс Такси</strong>.</p>
+            <p>Диапазон доставки: <strong>± 15 минут</strong>.</p>
+            <div className="bg-neutral-50 rounded-xl p-4 space-y-2">
+              <div className="flex justify-between items-center">
+                <span>Забираете с автомобиля</span>
+                <strong className="text-neutral-900">400 ₽</strong>
+              </div>
+              <div className="flex justify-between items-center">
+                <span>Занос букета в здание</span>
+                <strong className="text-neutral-900">500 ₽</strong>
               </div>
             </div>
-            <div className="border-b border-neutral-100 pb-4">
-              <p className="font-semibold text-neutral-900 mb-1">Алексеева 111</p>
-              <p className="text-neutral-500 text-xs mb-2">Зоны: голубая, серая, коричневая</p>
-              <div className="flex gap-4">
-                <span>До подъезда — <strong>400 ₽</strong></span>
-                <span>До квартиры — <strong>500 ₽</strong></span>
+            <p className="text-neutral-500 text-xs">Также курьера можно заказать самостоятельно от двери до двери через любой удобный сервис доставки.</p>
+          </div>
+        </motion.div>
+      </motion.div>
+    )}
+    </AnimatePresence>
+
+    {/* Модальное окно оплаты */}
+    <AnimatePresence>
+    {paymentOpen && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:px-4 pb-16 sm:pb-0"
+        style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
+        onClick={() => setPaymentOpen(false)}
+      >
+        <motion.div
+          initial={{ y: "100%", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: "100%", opacity: 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-6 sm:max-w-md w-full"
+          onClick={e => e.stopPropagation()}
+        >
+          <div className="w-10 h-1 bg-neutral-200 rounded-full mx-auto mb-4 sm:hidden" />
+          <div className="flex justify-between items-center mb-5">
+            <h2 className="text-xl font-bold text-neutral-900 uppercase tracking-wide">Оплата</h2>
+            <button onClick={() => setPaymentOpen(false)} className="text-neutral-400 hover:text-black transition-colors">
+              <Icon name="X" size={22} />
+            </button>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {["Наличные", "Терминал", "QR", "СБП"].map(method => (
+              <div key={method} className="bg-neutral-50 rounded-xl px-4 py-3 text-sm font-medium text-neutral-800 text-center">
+                {method}
               </div>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
+    )}
+    </AnimatePresence>
+
+    {/* Модальное окно возврата */}
+    <AnimatePresence>
+    {returnOpen && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:px-4 pb-16 sm:pb-0"
+        style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
+        onClick={() => setReturnOpen(false)}
+      >
+        <motion.div
+          initial={{ y: "100%", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: "100%", opacity: 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl p-6 sm:max-w-lg w-full max-h-[85vh] overflow-y-auto"
+          onClick={e => e.stopPropagation()}
+        >
+          <div className="w-10 h-1 bg-neutral-200 rounded-full mx-auto mb-4 sm:hidden" />
+          <div className="flex justify-between items-center mb-5">
+            <h2 className="text-xl font-bold text-neutral-900 uppercase tracking-wide">Возврат</h2>
+            <button onClick={() => setReturnOpen(false)} className="text-neutral-400 hover:text-black transition-colors">
+              <Icon name="X" size={22} />
+            </button>
+          </div>
+          <div className="space-y-5 text-sm text-neutral-700">
+            <div>
+              <p className="font-semibold text-neutral-900 mb-1">Самовывоз</p>
+              <p>Букет осматривается на месте в магазине. После того как забрали заказ — возврат и обмен невозможен.</p>
             </div>
-            <div className="border-b border-neutral-100 pb-4">
-              <p className="font-semibold text-neutral-900 mb-1">Семафорная 191</p>
-              <p className="text-neutral-500 text-xs mb-2">Зоны: красная, чёрная, коричневая</p>
-              <div className="flex gap-4">
-                <span>До подъезда — <strong>400 ₽</strong></span>
-                <span>До квартиры — <strong>500 ₽</strong></span>
-              </div>
+            <div>
+              <p className="font-semibold text-neutral-900 mb-1">Доставка</p>
+              <p>Букет осматривается при курьере. Если вас не устраивает качество — букет отдаётся обратно курьеру. После завершения доставки возврат и обмен невозможен.</p>
             </div>
-            <p className="text-neutral-500 text-xs pt-1">
-              Адреса, не входящие в зону покрытия интересующего вас филиала, рассчитываются в индивидуальном порядке.
-            </p>
+            <div className="bg-neutral-50 rounded-xl p-4 space-y-2">
+              <p className="font-semibold text-neutral-900">Возврат денежных средств при:</p>
+              <p>• <strong>Брак цветка</strong> — производится в течение срока, установленного вашим банком.</p>
+              <p>• <strong>Не устроил сорт</strong> — средства возвращаются после продажи букета другому заказчику.</p>
+            </div>
           </div>
         </motion.div>
       </motion.div>
