@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Icon from "@/components/ui/icon";
 
@@ -30,8 +30,45 @@ const shops = [
   { address: "Ул. Алексеева 111", phone: "8-995-124-12-44", tel: "+79951241244" },
 ];
 
+function useShopTimer() {
+  const [label, setLabel] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    function calc() {
+      const now = new Date();
+      const h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+      const totalSec = h * 3600 + m * 60 + s;
+      const openSec = 9 * 3600;
+      const closeSec = 21 * 3600;
+
+      let diff: number;
+      let open: boolean;
+      if (totalSec >= openSec && totalSec < closeSec) {
+        diff = closeSec - totalSec;
+        open = true;
+      } else {
+        diff = totalSec < openSec ? openSec - totalSec : (24 * 3600 - totalSec + openSec);
+        open = false;
+      }
+      const hh = Math.floor(diff / 3600);
+      const mm = Math.floor((diff % 3600) / 60);
+      const ss = diff % 60;
+      const pad = (n: number) => String(n).padStart(2, "0");
+      setIsOpen(open);
+      setLabel(`${open ? "Закроется через" : "Откроется через"} ${hh > 0 ? `${hh}:` : ""}${pad(mm)}:${pad(ss)}`);
+    }
+    calc();
+    const id = setInterval(calc, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  return { label, isOpen };
+}
+
 export default function Header({ className }: HeaderProps) {
   const [aboutOpen, setAboutOpen] = useState(false);
+  const { label, isOpen } = useShopTimer();
 
   return (
     <>
@@ -86,9 +123,14 @@ export default function Header({ className }: HeaderProps) {
             </div>
 
             {/* Режим работы */}
-            <div className="flex items-center gap-2 bg-neutral-50 rounded-xl px-4 py-3 mb-5">
-              <span className="text-lg">⌚️</span>
-              <p className="text-sm font-medium text-neutral-700">Режим работы: <strong>с 9:00 до 21:00</strong></p>
+            <div className="flex items-center justify-between gap-2 bg-neutral-50 rounded-xl px-4 py-3 mb-5">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">⌚️</span>
+                <p className="text-sm font-medium text-neutral-700">Режим работы: <strong>с 9:00 до 21:00</strong></p>
+              </div>
+              <div className={`text-xs font-semibold px-2 py-1 rounded-lg whitespace-nowrap ${isOpen ? "bg-green-100 text-green-700" : "bg-red-100 text-red-600"}`}>
+                {label}
+              </div>
             </div>
 
             {/* Магазины */}
