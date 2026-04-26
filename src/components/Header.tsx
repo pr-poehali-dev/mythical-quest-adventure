@@ -126,7 +126,7 @@ export default function Header({ className }: HeaderProps) {
             <div className="flex items-center justify-between gap-2 bg-neutral-50 rounded-xl px-4 py-3 mb-5">
               <div className="flex items-center gap-2">
                 <span className="text-lg">⌚️</span>
-                <p className="text-sm font-medium text-neutral-700">Режим работы: <strong>с 9:00 до 21:00</strong></p>
+                <p className="text-sm font-medium text-neutral-700">Режим работы: <strong>9:00 до 21:00</strong></p>
               </div>
               <div className={`text-xs font-semibold px-2 py-1 rounded-lg whitespace-nowrap ${isOpen ? "bg-green-100 text-green-700" : "bg-red-100 text-red-600"}`}>
                 {label}
